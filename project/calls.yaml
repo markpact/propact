@@ -1,0 +1,496 @@
+project: /home/tom/github/pactown-com/propact
+generated_from: code2llm call graph analysis
+stats:
+  total_nodes: 19
+  total_edges: 15
+  modules_count: 10
+nodes:
+  src.propact.security.create_sanitizer:
+    name: create_sanitizer
+    module: src.propact.security
+    line: 244
+    cyclomatic_complexity: 2
+    calls_out: 2
+    calls_in: 1
+  src.propact.config.is_test_mode:
+    name: is_test_mode
+    module: src.propact.config
+    line: 362
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 0
+  src.propact.optimization.create_optimizer:
+    name: create_optimizer
+    module: src.propact.optimization
+    line: 339
+    cyclomatic_complexity: 1
+    calls_out: 2
+    calls_in: 1
+  src.propact.adapters.EmailAdapter.__init__:
+    name: __init__
+    module: src.propact.adapters
+    line: 272
+    cyclomatic_complexity: 1
+    calls_out: 9
+    calls_in: 0
+  src.propact.config.get_openai_config:
+    name: get_openai_config
+    module: src.propact.config
+    line: 327
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 0
+  src.propact.config.get_config:
+    name: get_config
+    module: src.propact.config
+    line: 304
+    cyclomatic_complexity: 2
+    calls_out: 1
+    calls_in: 9
+  src.propact.core.ToonPact.smart_send:
+    name: smart_send
+    module: src.propact.core
+    line: 25
+    cyclomatic_complexity: 13
+    calls_out: 32
+    calls_in: 0
+  examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__:
+    name: __init__
+    module: examples.05-security-hardening.secure_handler
+    line: 54
+    cyclomatic_complexity: 1
+    calls_out: 6
+    calls_in: 0
+  src.propact.config.get_server_config:
+    name: get_server_config
+    module: src.propact.config
+    line: 352
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 1
+  src.propact.testing.ExampleHelper.run_example:
+    name: run_example
+    module: src.propact.testing
+    line: 112
+    cyclomatic_complexity: 12
+    calls_out: 15
+    calls_in: 0
+  src.propact.adapters.MQTTAdapter.send:
+    name: send
+    module: src.propact.adapters
+    line: 163
+    cyclomatic_complexity: 7
+    calls_out: 17
+    calls_in: 0
+  src.propact.config.get_grpc_config:
+    name: get_grpc_config
+    module: src.propact.config
+    line: 332
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 0
+  src.propact.config.get_mqtt_config:
+    name: get_mqtt_config
+    module: src.propact.config
+    line: 337
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 1
+  src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm:
+    name: _llm_self_correct_litellm
+    module: src.propact.error_handler
+    line: 111
+    cyclomatic_complexity: 7
+    calls_out: 10
+    calls_in: 0
+  src.propact.llm_proxy.self_correct:
+    name: self_correct
+    module: src.propact.llm_proxy
+    line: 250
+    cyclomatic_complexity: 3
+    calls_out: 9
+    calls_in: 1
+  src.propact.config.get_smtp_config:
+    name: get_smtp_config
+    module: src.propact.config
+    line: 342
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 2
+  src.propact.config.is_debug:
+    name: is_debug
+    module: src.propact.config
+    line: 357
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 0
+  src.propact.matcher.create_matcher:
+    name: create_matcher
+    module: src.propact.matcher
+    line: 236
+    cyclomatic_complexity: 2
+    calls_out: 1
+    calls_in: 1
+  src.propact.config.get_websocket_config:
+    name: get_websocket_config
+    module: src.propact.config
+    line: 347
+    cyclomatic_complexity: 1
+    calls_out: 1
+    calls_in: 0
+edges:
+- caller: examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__
+  callee: src.propact.security.create_sanitizer
+  call_type: resolved
+- caller: examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__
+  callee: src.propact.optimization.create_optimizer
+  call_type: resolved
+- caller: src.propact.config.get_openai_config
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.get_grpc_config
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.get_mqtt_config
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.get_smtp_config
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.get_websocket_config
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.get_server_config
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.is_debug
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.config.is_test_mode
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.adapters.MQTTAdapter.send
+  callee: src.propact.config.get_mqtt_config
+  call_type: resolved
+- caller: src.propact.adapters.EmailAdapter.__init__
+  callee: src.propact.config.get_smtp_config
+  call_type: resolved
+- caller: src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm
+  callee: src.propact.llm_proxy.self_correct
+  call_type: resolved
+- caller: src.propact.testing.ExampleHelper.run_example
+  callee: src.propact.config.get_config
+  call_type: resolved
+- caller: src.propact.core.ToonPact.smart_send
+  callee: src.propact.matcher.create_matcher
+  call_type: resolved
+modules:
+  examples.05-security-hardening.secure_handler:
+  - examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__
+  src.propact.adapters:
+  - src.propact.adapters.EmailAdapter.__init__
+  - src.propact.adapters.MQTTAdapter.send
+  src.propact.config:
+  - src.propact.config.get_config
+  - src.propact.config.get_grpc_config
+  - src.propact.config.get_mqtt_config
+  - src.propact.config.get_openai_config
+  - src.propact.config.get_server_config
+  - src.propact.config.get_smtp_config
+  - src.propact.config.get_websocket_config
+  - src.propact.config.is_debug
+  - src.propact.config.is_test_mode
+  src.propact.core:
+  - src.propact.core.ToonPact.smart_send
+  src.propact.error_handler:
+  - src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm
+  src.propact.llm_proxy:
+  - src.propact.llm_proxy.self_correct
+  src.propact.matcher:
+  - src.propact.matcher.create_matcher
+  src.propact.optimization:
+  - src.propact.optimization.create_optimizer
+  src.propact.security:
+  - src.propact.security.create_sanitizer
+  src.propact.testing:
+  - src.propact.testing.ExampleHelper.run_example
+entry_points:
+- examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__
+- examples.05-security-hardening.secure_handler.SecureMarkdownHandler.get_security_report
+- examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process
+- examples.05-security-hardening.secure_handler.SecurityEventHandler.__init__
+- examples.05-security-hardening.secure_handler.SecurityEventHandler.get_report
+- examples.05-security-hardening.secure_handler.SecurityEventHandler.handle_violation
+- examples.05-security-hardening.secure_handler.demo_security
+- examples.09-imgur.run.exit
+- examples.10-slack.run.exit
+- examples.11-discord.run.exit
+- examples.12-openai-vision.run.exit
+- examples.13-github-gist.run.exit
+- examples.14-stripe.run.exit
+- examples.15-youtube.run.exit
+- examples.16-notion.run.exit
+- examples.17-twitter.run.exit
+- examples.run-all.check_env_vars
+- examples.run-all.check_propact
+- examples.run-all.main
+- examples.run-all.print_error
+- examples.run-all.print_header
+- examples.run-all.print_status
+- examples.run-all.print_success
+- examples.run-all.print_warning
+- examples.run-all.run_example
+- examples.run-all.run_legacy_example
+- examples.run-all.validate_example
+- src.propact.adapters.BaseProtocolAdapter.__init__
+- src.propact.adapters.BaseProtocolAdapter.is_available
+- src.propact.adapters.BaseProtocolAdapter.send
+- src.propact.adapters.EmailAdapter.__init__
+- src.propact.adapters.EmailAdapter.send
+- src.propact.adapters.GRPCAdapter.__init__
+- src.propact.adapters.GRPCAdapter.is_available
+- src.propact.adapters.GRPCAdapter.send
+- src.propact.adapters.GraphQLAdapter.is_available
+- src.propact.adapters.GraphQLAdapter.send
+- src.propact.adapters.MQTTAdapter.__init__
+- src.propact.adapters.MQTTAdapter.is_available
+- src.propact.adapters.MQTTAdapter.send
+- src.propact.adapters.SOAPAdapter.__init__
+- src.propact.adapters.SOAPAdapter.is_available
+- src.propact.adapters.SOAPAdapter.send
+- src.propact.attachments.AttachmentHandler.__init__
+- src.propact.attachments.AttachmentHandler.decode_base64
+- src.propact.attachments.AttachmentHandler.encode_base64
+- src.propact.attachments.AttachmentHandler.extract_from_markdown
+- src.propact.attachments.AttachmentHandler.get_mime_type
+- src.propact.attachments.AttachmentHandler.load_attachment
+- src.propact.attachments.AttachmentHandler.save_attachment
+- src.propact.cli.batch
+- src.propact.cli.cli
+- src.propact.cli.convert
+- src.propact.cli.file
+- src.propact.cli.formats
+- src.propact.cli.main
+- src.propact.cli.send_email
+- src.propact.cli.string
+- src.propact.cli.universal
+- src.propact.config.ConfigManager.__init__
+- src.propact.config.ConfigManager._find_env_file
+- src.propact.config.ConfigManager._get_env_bool
+- src.propact.config.ConfigManager._get_env_int
+- src.propact.config.ConfigManager._get_env_path
+- src.propact.config.ConfigManager._load_config
+- src.propact.config.ConfigManager._load_env
+- src.propact.config.ConfigManager.reload
+- src.propact.config.get_grpc_config
+- src.propact.config.get_openai_config
+- src.propact.config.get_websocket_config
+- src.propact.config.init_config
+- src.propact.config.is_debug
+- src.propact.config.is_test_mode
+- src.propact.config.reload_config
+- src.propact.converter.ExtractedContent.__post_init__
+- src.propact.converter.MDConverter._binary_to_markdown
+- src.propact.converter.MDConverter._dict_to_markdown
+- src.propact.converter.MDConverter._get_mime_type
+- src.propact.converter.MDConverter._prepare_form_payload
+- src.propact.converter.MDConverter._prepare_json_payload
+- src.propact.converter.MDConverter._prepare_multipart_payload
+- src.propact.converter.MDConverter._prepare_openapi_payload
+- src.propact.converter.MDConverter._text_to_markdown
+- src.propact.converter.MDConverter.create_codeblock
+- src.propact.converter.MDConverter.embed_media
+- src.propact.converter.MDConverter.extract_from_markdown
+- src.propact.converter.MDConverter.merge_markdown
+- src.propact.converter.MDConverter.prepare_payload
+- src.propact.converter.MDConverter.response_to_markdown
+- src.propact.core.ToonPact.__init__
+- src.propact.core.ToonPact._execute_mcp
+- src.propact.core.ToonPact._execute_rest
+- src.propact.core.ToonPact._execute_shell
+- src.propact.core.ToonPact._execute_ws
+- src.propact.core.ToonPact.execute
+- src.propact.core.ToonPact.load
+- src.propact.core.ToonPact.smart_send
+- src.propact.dsl_converter.BaseConverter.__init__
+- src.propact.dsl_converter.BaseConverter._create_md_table
+- src.propact.dsl_converter.BaseConverter._parse_md_table
+- src.propact.dsl_converter.BaseConverter.from_markdown
+- src.propact.dsl_converter.BaseConverter.to_markdown
+- src.propact.dsl_converter.CSVConverter.from_markdown
+- src.propact.dsl_converter.CSVConverter.to_markdown
+- src.propact.dsl_converter.ConversionResult.__post_init__
+- src.propact.dsl_converter.DSLConverter.__init__
+- src.propact.dsl_converter.DSLConverter.convert
+- src.propact.dsl_converter.DSLConverter.list_formats
+- src.propact.dsl_converter.DSLConverter.register_converter
+- src.propact.dsl_converter.GraphQLConverter._extract_structured_data
+- src.propact.dsl_converter.GraphQLConverter._generate_generic_query
+- src.propact.dsl_converter.GraphQLConverter._generate_github_query
+- src.propact.dsl_converter.GraphQLConverter._generate_stripe_query
+- src.propact.dsl_converter.GraphQLConverter.from_markdown
+- src.propact.dsl_converter.GraphQLConverter.to_markdown
+- src.propact.dsl_converter.SQLConverter.__init__
+- src.propact.dsl_converter.SQLConverter._mock_sql_result
+- src.propact.dsl_converter.SQLConverter.from_markdown
+- src.propact.dsl_converter.SQLConverter.to_markdown
+- src.propact.dsl_converter.XMLConverter._markdown_to_dict
+- src.propact.dsl_converter.XMLConverter.from_markdown
+- src.propact.dsl_converter.XMLConverter.to_markdown
+- src.propact.dsl_converter.YAMLConverter._dict_to_markdown
+- src.propact.dsl_converter.YAMLConverter._list_to_markdown
+- src.propact.dsl_converter.YAMLConverter._markdown_to_dict
+- src.propact.dsl_converter.YAMLConverter.from_markdown
+- src.propact.dsl_converter.YAMLConverter.to_markdown
+- src.propact.enhanced.Propact.__init__
+- src.propact.enhanced.Propact._adapt_to_mcp
+- src.propact.enhanced.Propact._adapt_to_openapi
+- src.propact.enhanced.Propact._adapt_to_shell
+- src.propact.enhanced.Propact._detect_schema_type
+- src.propact.enhanced.Propact._get_mime_type
+- src.propact.enhanced.Propact._introspect_schema
+- src.propact.enhanced.Propact._response_to_md
+- src.propact.enhanced.Propact._send_mcp
+- src.propact.enhanced.Propact._send_rest
+- src.propact.enhanced.Propact._send_shell
+- src.propact.enhanced.Propact._send_ws
+- src.propact.enhanced.Propact._smart_split_md
+- src.propact.enhanced.Propact.send_to_endpoint
+- src.propact.enhanced.Propact.server_mode
+- src.propact.enhanced.SplitContent.__post_init__
+- src.propact.error_handler.PropactErrorHandler.__init__
+- src.propact.error_handler.PropactErrorHandler._confirm_fix
+- src.propact.error_handler.PropactErrorHandler._extract_intent
+- src.propact.error_handler.PropactErrorHandler._extract_keywords
+- src.propact.error_handler.PropactErrorHandler._fallback_search
+- src.propact.error_handler.PropactErrorHandler._fix_client_error
+- src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm
+- src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama
+- src.propact.error_handler.PropactErrorHandler._generic_fallback
+- src.propact.error_handler.PropactErrorHandler._llm_self_correct
+- src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm
+- src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama
+- src.propact.error_handler.PropactErrorHandler._retry_with_backoff
+- src.propact.error_handler.PropactErrorHandler._simplify_and_retry
+- src.propact.error_handler.PropactErrorHandler.handle_match_failure
+- src.propact.importer.OpenAPILLMImporter.extract_llm_descriptions
+- src.propact.importer.OpenAPILLMImporter.from_browser_session
+- src.propact.importer.OpenAPILLMImporter.import_browser_spec
+- src.propact.importer.OpenAPILLMImporter.is_llm_enhanced
+- src.propact.llm_proxy.LiteLLMProxy.__init__
+- src.propact.llm_proxy.LiteLLMProxy._load_config
+- src.propact.llm_proxy.LiteLLMProxy.astream
+- src.propact.llm_proxy.LiteLLMProxy.from_env
+- src.propact.llm_proxy.LiteLLMProxy.generate
+- src.propact.llm_proxy.LiteLLMProxy.generate_sync
+- src.propact.llm_proxy.LiteLLMProxy.list_providers
+- src.propact.llm_proxy.match_intent
+- src.propact.llm_proxy.quick_generate
+- src.propact.matcher.EndpointMatcher.__init__
+- src.propact.matcher.EndpointMatcher.compute_similarities
+- src.propact.matcher.EndpointMatcher.extract_endpoints
+- src.propact.matcher.EndpointMatcher.extract_intent
+- src.propact.matcher.EndpointMatcher.match
+- src.propact.matcher.EndpointMatcher.match_from_file
+- src.propact.matcher.OpenAPILLMMatcher.__init__
+- src.propact.matcher.OpenAPILLMMatcher._extract_candidates
+- src.propact.matcher.OpenAPILLMMatcher._extract_intent
+- src.propact.matcher.OpenAPILLMMatcher._llm_select
+- src.propact.matcher.OpenAPILLMMatcher.hybrid_match
+- src.propact.matcher.OpenAPILLMMatcher.match
+- src.propact.matcher.create_llm_matcher
+- src.propact.optimization.MDOptimizer.__init__
+- src.propact.optimization.MDOptimizer._add_compression_metadata
+- src.propact.optimization.MDOptimizer._optimize_base64_images
+- src.propact.optimization.MDOptimizer._optimize_code_blocks
+- src.propact.optimization.MDOptimizer._optimize_image
+- src.propact.optimization.MDOptimizer.create_chunks
+- src.propact.optimization.MDOptimizer.get_optimization_report
+- src.propact.optimization.MDOptimizer.optimize
+- src.propact.optimization.MediaRefManager.__init__
+- src.propact.optimization.MediaRefManager.generate_ref
+- src.propact.optimization.MediaRefManager.should_externalize
+- src.propact.optimization.OptimizationConfig.__post_init__
+- src.propact.parser.MarkdownParser.__init__
+- src.propact.parser.MarkdownParser._extract_attachments
+- src.propact.parser.MarkdownParser._extract_metadata
+- src.propact.parser.MarkdownParser.parse
+- src.propact.parser.ProtocolBlock.__post_init__
+- src.propact.protocols.mcp.MCPProtocol.__init__
+- src.propact.protocols.mcp.MCPProtocol.create_list_resources_response
+- src.propact.protocols.mcp.MCPProtocol.create_list_tools_response
+- src.propact.protocols.mcp.MCPProtocol.execute_tool
+- src.propact.protocols.mcp.MCPProtocol.get_resource
+- src.propact.protocols.mcp.MCPProtocol.register_resource
+- src.propact.protocols.mcp.MCPProtocol.register_tool
+- src.propact.protocols.rest.RESTProtocol.__init__
+- src.propact.protocols.rest.RESTProtocol.delete
+- src.propact.protocols.rest.RESTProtocol.execute
+- src.propact.protocols.rest.RESTProtocol.get
+- src.propact.protocols.rest.RESTProtocol.post
+- src.propact.protocols.rest.RESTProtocol.put
+- src.propact.protocols.shell.ShellProtocol.__init__
+- src.propact.protocols.shell.ShellProtocol.execute
+- src.propact.protocols.shell.ShellProtocol.execute_script
+- src.propact.protocols.ws.WebSocketProtocol.__init__
+- src.propact.protocols.ws.WebSocketProtocol.add_message_handler
+- src.propact.protocols.ws.WebSocketProtocol.connect
+- src.propact.protocols.ws.WebSocketProtocol.disconnect
+- src.propact.protocols.ws.WebSocketProtocol.receive
+- src.propact.protocols.ws.WebSocketProtocol.remove_message_handler
+- src.propact.protocols.ws.WebSocketProtocol.send
+- src.propact.query_gen.QueryGenerator.__init__
+- src.propact.query_gen.QueryGenerator._render_template
+- src.propact.query_gen.QueryGenerator.enhance_template
+- src.propact.query_gen.QueryGenerator.generate_from_spec
+- src.propact.query_gen.QueryGenerator.generate_md
+- src.propact.query_gen.QueryGenerator.suggest_endpoint
+- src.propact.query_gen.batch_generate
+- src.propact.query_gen.query_to_md
+- src.propact.security.MDSanitizer.__init__
+- src.propact.security.MDSanitizer._remove_scripts
+- src.propact.security.MDSanitizer._sanitize_base64_images
+- src.propact.security.MDSanitizer._sanitize_html
+- src.propact.security.MDSanitizer._sanitize_links
+- src.propact.security.MDSanitizer._strict_sanitization
+- src.propact.security.MDSanitizer.audit
+- src.propact.security.MDSanitizer.sanitize
+- src.propact.security.SanitizationConfig.__post_init__
+- src.propact.testing.ExampleHelper.check_dependencies
+- src.propact.testing.ExampleHelper.check_env_var
+- src.propact.testing.ExampleHelper.cleanup_files
+- src.propact.testing.ExampleHelper.create_sample_file
+- src.propact.testing.ExampleHelper.print_status
+- src.propact.testing.ExampleHelper.run_example
+- src.propact.testing.run_example
+- src.propact.uniconverter.ConversionResult.__post_init__
+- src.propact.uniconverter.UniConverter.__init__
+- src.propact.uniconverter.UniConverter._email_to_md
+- src.propact.uniconverter.UniConverter._html_to_md
+- src.propact.uniconverter.UniConverter._markitdown_to_md
+- src.propact.uniconverter.UniConverter._md_to_docx
+- src.propact.uniconverter.UniConverter._md_to_email
+- src.propact.uniconverter.UniConverter._md_to_html
+- src.propact.uniconverter.UniConverter._md_to_pdf
+- src.propact.uniconverter.UniConverter._md_to_pptx
+- src.propact.uniconverter.UniConverter._md_to_xlsx
+- src.propact.uniconverter.UniConverter._pandoc_from_md
+- src.propact.uniconverter.UniConverter._pandoc_to_md
+- src.propact.uniconverter.UniConverter.from_markdown
+- src.propact.uniconverter.UniConverter.get_supported_formats
+- src.propact.uniconverter.UniConverter.send_email
+- src.propact.uniconverter.UniConverter.to_markdown
+- src.propact.validation.SchemaRegistry.__init__
+- src.propact.validation.SchemaRegistry._load_schemas
+- src.propact.validation.SchemaRegistry.detect_drift
+- src.propact.validation.SchemaRegistry.get_schema
+- src.propact.validation.SchemaRegistry.register_schema
+- src.propact.validation.ValidationPipeline.__init__
+- src.propact.validation.ValidationPipeline._validate_against_schema
+- src.propact.validation.ValidationPipeline._validate_types
+- src.propact.validation.ValidationPipeline.create_schema_pin
+- src.propact.validation.ValidationPipeline.detect_schema_drift
+- src.propact.validation.ValidationPipeline.validate
+- test_all_examples.test_example
+- test_examples_final.test_example
+- verify_examples.test_example

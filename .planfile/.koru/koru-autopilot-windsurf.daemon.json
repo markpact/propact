@@ -1,0 +1,20 @@
+{
+  "cwd": "/home/tom/github/pactown-com/propact",
+  "env": {
+    "KORU_AUTOPILOT_INSTANCE": "windsurf",
+    "VIRTUAL_ENV": "/home/tom/github/pactown-com/propact/.venv"
+  },
+  "git_sha": "8fae586f4a45",
+  "pid": 199966,
+  "ppid": 197441,
+  "project": "/home/tom/github/pactown-com/propact",
+  "python": "3.12.0",
+  "python_executable": "/home/tom/.pyenv/versions/3.12.0/bin/python3.12",
+  "schema": "koru.autopilot.daemon.v1",
+  "socket": "/run/user/1000/koru-autopilot-windsurf.sock",
+  "socket_inode": 299,
+  "started_at": "2026-06-02T09:02:50.713200+00:00",
+  "uid": 1000,
+  "uptime_seconds": 0.00671696662902832,
+  "version": "0.1.288"
+}

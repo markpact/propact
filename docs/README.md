@@ -1,7 +1,7 @@
 <!-- code2docs:start --># propact
 
-![version](https://img.shields.io/badge/version-0.1.0-blue) ![python](https://img.shields.io/badge/python-%3E%3D3.9-blue) ![coverage](https://img.shields.io/badge/coverage-unknown-lightgrey) ![functions](https://img.shields.io/badge/functions-280-green)
-> **280** functions | **69** classes | **46** files | CC̄ = 3.8
+![version](https://img.shields.io/badge/version-0.1.0-blue) ![python](https://img.shields.io/badge/python-%3E%3D3.9-blue) ![coverage](https://img.shields.io/badge/coverage-unknown-lightgrey) ![functions](https://img.shields.io/badge/functions-290-green)
+> **290** functions | **70** classes | **148** files | CC̄ = 3.8
 
 > Auto-generated project documentation from source code analysis.
 
@@ -60,112 +60,162 @@ config = Code2DocsConfig(project_name="mylib", verbose=True)
 docs = generate_docs("./my-project", config=config)
 ```
 
-## Generated Output
 
-When you run `propact`, the following files are produced:
 
-```
-<project>/
-├── README.md                 # Main project README (auto-generated sections)
-├── docs/
-│   ├── api.md               # Consolidated API reference
-│   ├── modules.md           # Module documentation with metrics
-│   ├── architecture.md      # Architecture overview with diagrams
-│   ├── dependency-graph.md  # Module dependency graphs
-│   ├── coverage.md          # Docstring coverage report
-│   ├── getting-started.md   # Getting started guide
-│   ├── configuration.md    # Configuration reference
-│   └── api-changelog.md    # API change tracking
-├── examples/
-│   ├── quickstart.py       # Basic usage examples
-│   └── advanced_usage.py   # Advanced usage examples
-├── CONTRIBUTING.md         # Contribution guidelines
-└── mkdocs.yml             # MkDocs site configuration
-```
-
-## Configuration
-
-Create `propact.yaml` in your project root (or run `propact init`):
-
-```yaml
-project:
-  name: my-project
-  source: ./
-  output: ./docs/
-
-readme:
-  sections:
-    - overview
-    - install
-    - quickstart
-    - api
-    - structure
-  badges:
-    - version
-    - python
-    - coverage
-  sync_markers: true
-
-docs:
-  api_reference: true
-  module_docs: true
-  architecture: true
-  changelog: true
-
-examples:
-  auto_generate: true
-  from_entry_points: true
-
-sync:
-  strategy: markers    # markers | full | git-diff
-  watch: false
-  ignore:
-    - "tests/"
-    - "__pycache__"
-```
-
-## Sync Markers
-
-propact can update only specific sections of an existing README using HTML comment markers:
-
-```markdown
-<!-- propact:start -->
-# Project Title
-... auto-generated content ...
-<!-- propact:end -->
-```
-
-Content outside the markers is preserved when regenerating. Enable this with `sync_markers: true` in your configuration.
 
 ## Architecture
 
 ```
 propact/
-        ├── importer        ├── adapters        ├── cli        ├── matcher        ├── dsl_converter    ├── propact/        ├── security        ├── config        ├── enhanced        ├── parser        ├── error_handler        ├── llm_proxy        ├── core        ├── uniconverter        ├── attachments        ├── query_gen            ├── mcp        ├── optimization        ├── protocols/            ├── shell            ├── rest        ├── secure_handler├── project    ├── run-all        ├── run        ├── run        ├── run        ├── run        ├── demo-public        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run        ├── run            ├── ws        ├── converter        ├── validation```
+├── verify_examples
+├── test_all_examples
+├── goal
+├── planfile
+├── Makefile
+├── sample_data
+├── report
+├── test_examples_final
+├── pyproject
+├── TODO
+├── prefact
+├── CHANGELOG
+├── project
+├── README
+    ├── error-handling
+    ├── usage
+    ├── openapi-llm
+    ├── security
+    ├── semantic-matching
+    ├── api
+    ├── README
+    ├── run-all
+    ├── Makefile
+    ├── run-new-examples
+    ├── README
+            ├── response
+        ├── README
+        ├── run
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+        ├── run
+        ├── README
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+        ├── run
+        ├── README
+        ├── demo-public
+        ├── README
+                ├── response
+            ├── README
+                    ├── response
+                ├── README
+                    ├── response
+                ├── README
+                ├── response
+            ├── README
+                ├── response
+            ├── README
+                ├── response
+            ├── README
+                    ├── response
+                ├── README
+        ├── run
+        ├── slack-openapi
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+        ├── notion-openapi
+        ├── README
+        ├── README
+        ├── openapi
+            ├── response
+        ├── README
+        ├── README
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+        ├── README
+            ├── response
+        ├── ecommerce-api
+        ├── README
+        ├── run
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+        ├── README
+        ├── README
+        ├── run
+        ├── README
+        ├── run
+        ├── README
+        ├── run
+        ├── README
+        ├── attack_samples
+        ├── run
+        ├── secure_handler
+        ├── README
+        ├── run
+        ├── README
+            ├── README
+            ├── README
+            ├── README
+        ├── run
+        ├── README
+        ├── run
+            ├── response
+        ├── README
+    ├── 🏗️ __Implementacja konwersji w Propact__ (kod goto
+    ├── stworz przyklady uzycia dla examples___z roznymi r
+    ├── chodzi o stworzenie prostej alternatywy adresowane
+    ├── Projekty, które realziuje, mają za zadanie algoryt
+    ├── podaj mozliwosci zastoswania oraz podaj jakie prot
+    ├── zaproponuj przydatne biblioteki python do stworzen
+    ├── zdecydowalem sie na anzwe propact_stworz struktur
+    ├── chodzi o stworzenie biblitoeki, ktora będzie dział
+        ├── config
+        ├── cli
+        ├── importer
+        ├── dsl_converter
+        ├── adapters
+        ├── matcher
+        ├── security
+        ├── error_handler
+    ├── propact/
+        ├── parser
+        ├── validation
+        ├── testing
+        ├── enhanced
+        ├── uniconverter
+        ├── optimization
+        ├── llm_proxy
+        ├── core
+        ├── attachments
+        ├── query_gen
+        ├── converter
+        ├── constants
+            ├── mcp
+            ├── ws
+        ├── protocols/
+            ├── shell
+            ├── rest
+```
 
 ## API Overview
 
 ### Classes
 
-- **`OpenAPILLMImporter`** — Imports and enhances OpenAPI specs generated by openapi-llm.
-- **`BaseProtocolAdapter`** — Base class for protocol adapters.
-- **`GRPCAdapter`** — Adapter for gRPC protocol.
-- **`GraphQLAdapter`** — Adapter for GraphQL protocol.
-- **`MQTTAdapter`** — Adapter for MQTT protocol.
-- **`SOAPAdapter`** — Adapter for SOAP protocol.
-- **`EmailAdapter`** — Adapter for Email protocol.
-- **`EndpointMatcher`** — Matches markdown content to OpenAPI endpoints using semantic similarity.
-- **`OpenAPILLMMatcher`** — LLM-based semantic matcher for fast/accurate endpoint selection.
-- **`ConversionResult`** — Result of a conversion operation.
-- **`BaseConverter`** — Base class for format converters.
-- **`SQLConverter`** — Converter for SQL ↔ Markdown tables.
-- **`GraphQLConverter`** — Converter for GraphQL ↔ Markdown.
-- **`YAMLConverter`** — Converter for YAML ↔ Markdown.
-- **`CSVConverter`** — Converter for CSV ↔ Markdown tables.
-- **`XMLConverter`** — Converter for XML ↔ Markdown.
-- **`DSLConverter`** — Main DSL converter using strategy pattern.
-- **`SanitizationConfig`** — Configuration for markdown sanitization.
-- **`MDSanitizer`** — Markdown sanitizer for security protection.
+- **`SecurityEventHandler`** — Handles security events and logging.
+- **`SecureMarkdownHandler`** — Secure handler for processing markdown content.
 - **`OpenAIConfig`** — OpenAI API configuration.
 - **`GRPCConfig`** — gRPC configuration.
 - **`MQTTConfig`** — MQTT configuration.
@@ -178,80 +228,68 @@ propact/
 - **`SecurityConfig`** — Security configuration.
 - **`Config`** — Main configuration class.
 - **`ConfigManager`** — Manages configuration loading and access.
-- **`SplitContent`** — Represents split content ready for transport.
-- **`Propact`** — Enhanced Propact class with schema introspection and intelligent content splitting.
-- **`ProtocolType`** — Supported protocol types.
-- **`ProtocolBlock`** — Represents a protocol block in markdown.
-- **`MarkdownParser`** — Parser for extracting protocol blocks from markdown documents.
+- **`OpenAPILLMImporter`** — Imports and enhances OpenAPI specs generated by openapi-llm.
+- **`ConversionResult`** — Result of a conversion operation.
+- **`BaseConverter`** — Base class for format converters.
+- **`SQLConverter`** — Converter for SQL ↔ Markdown tables.
+- **`GraphQLConverter`** — Converter for GraphQL ↔ Markdown.
+- **`YAMLConverter`** — Converter for YAML ↔ Markdown.
+- **`CSVConverter`** — Converter for CSV ↔ Markdown tables.
+- **`XMLConverter`** — Converter for XML ↔ Markdown.
+- **`DSLConverter`** — Main DSL converter using strategy pattern.
+- **`BaseProtocolAdapter`** — Base class for protocol adapters.
+- **`GRPCAdapter`** — Adapter for gRPC protocol.
+- **`GraphQLAdapter`** — Adapter for GraphQL protocol.
+- **`MQTTAdapter`** — Adapter for MQTT protocol.
+- **`SOAPAdapter`** — Adapter for SOAP protocol.
+- **`EmailAdapter`** — Adapter for Email protocol.
+- **`EndpointMatcher`** — Matches markdown content to OpenAPI endpoints using semantic similarity.
+- **`OpenAPILLMMatcher`** — LLM-based semantic matcher for fast/accurate endpoint selection.
+- **`SanitizationConfig`** — Configuration for markdown sanitization.
+- **`MDSanitizer`** — Markdown sanitizer for security protection.
 - **`ErrorMode`** — Error handling modes.
 - **`MatchError`** — Error information for recovery strategies.
 - **`PropactErrorHandler`** — Multi-layer error recovery system for Propact.
-- **`LLMConfig`** — Configuration for an LLM provider.
-- **`LiteLLMProxy`** — Unified interface for 100+ LLM providers via LiteLLM.
-- **`ToonPact`** — Main class for executing Protocol Pact documents.
+- **`ProtocolType`** — Supported protocol types.
+- **`ProtocolBlock`** — Represents a protocol block in markdown.
+- **`MarkdownParser`** — Parser for extracting protocol blocks from markdown documents.
+- **`ValidationResult`** — Result of validation.
+- **`SchemaInfo`** — Information about a schema.
+- **`SchemaRegistry`** — Registry for managing API schemas.
+- **`ValidationPipeline`** — Pipeline for validating markdown content.
+- **`ExampleHelper`** — Helper class for creating and managing example files.
+- **`SplitContent`** — Represents split content ready for transport.
+- **`Propact`** — Enhanced Propact class with schema introspection and intelligent content splitting.
 - **`ConversionResult`** — Result of a universal conversion operation.
 - **`EmailConfig`** — Configuration for email sending.
 - **`UniConverter`** — Universal document converter supporting 15+ formats.
-- **`AttachmentHandler`** — Handles binary attachments in Protocol Pact documents.
-- **`QueryGenerator`** — Generate Propact MD templates from natural language queries using LLM.
-- **`MCPMessage`** — MCP message structure.
-- **`MCPProtocol`** — Handles MCP (Model Context Protocol) communication within Protocol Pact.
 - **`OptimizationConfig`** — Configuration for payload optimization.
 - **`MediaRefManager`** — Manages external media references.
 - **`MDOptimizer`** — Markdown payload optimizer.
+- **`LLMConfig`** — Configuration for an LLM provider.
+- **`LiteLLMProxy`** — Unified interface for 100+ LLM providers via LiteLLM.
+- **`ToonPact`** — Main class for executing Protocol Pact documents.
+- **`AttachmentHandler`** — Handles binary attachments in Protocol Pact documents.
+- **`QueryGenerator`** — Generate Propact MD templates from natural language queries using LLM.
+- **`MediaType`** — Supported media types for conversion.
+- **`ExtractedContent`** — Represents content extracted from markdown.
+- **`MDConverter`** — Universal converter for markdown ↔ various formats.
+- **`MCPMessage`** — MCP message structure.
+- **`MCPProtocol`** — Handles MCP (Model Context Protocol) communication within Protocol Pact.
+- **`WebSocketState`** — WebSocket connection states.
+- **`WebSocketMessage`** — WebSocket message structure.
+- **`WebSocketProtocol`** — Handles WebSocket communication within Protocol Pact.
 - **`ShellProtocol`** — Handles shell command execution within Protocol Pact.
 - **`HTTPMethod`** — HTTP methods supported by REST protocol.
 - **`RESTRequest`** — REST request structure.
 - **`RESTResponse`** — REST response structure.
 - **`RESTProtocol`** — Handles REST API communication within Protocol Pact.
-- **`SecurityEventHandler`** — Handles security events and logging.
-- **`SecureMarkdownHandler`** — Secure handler for processing markdown content.
-- **`WebSocketState`** — WebSocket connection states.
-- **`WebSocketMessage`** — WebSocket message structure.
-- **`WebSocketProtocol`** — Handles WebSocket communication within Protocol Pact.
-- **`MediaType`** — Supported media types for conversion.
-- **`ExtractedContent`** — Represents content extracted from markdown.
-- **`MDConverter`** — Universal converter for markdown ↔ various formats.
-- **`ValidationResult`** — Result of validation.
-- **`SchemaInfo`** — Information about a schema.
-- **`SchemaRegistry`** — Registry for managing API schemas.
-- **`ValidationPipeline`** — Pipeline for validating markdown content.
 
 ### Functions
 
-- `get_protocol_adapter(protocol, endpoint)` — Get appropriate protocol adapter.
-- `cli()` — Propact: Protocol Pact via Markdown.
-- `main(file_path, protocol, endpoint, openapi)` — Execute Protocol Pact documents.
-- `list_blocks(pact)` — List all protocol blocks in the document.
-- `display_results(results, verbose)` — Display execution results.
-- `convert()` — Convert between different formats (SQL, GraphQL, YAML, CSV, XML).
-- `file(input_file, from_format, to_format, output)` — Convert a file from one format to another.
-- `string(content, from_format, to_format, dialect)` — Convert a string from one format to another.
-- `formats()` — List all supported formats.
-- `universal(input_path, to_md, to_pdf, to_docx)` — Universal document converter (PDF, DOCX, PPTX, XLSX, HTML, Email ↔ MD).
-- `send_email(markdown_file, to_emails, subject, smtp_host)` — Send Markdown as rich HTML email.
-- `batch(directory, to_md, output_dir, pattern)` — Batch convert files in a directory.
-- `create_matcher(model_name, error_handler)` — Create an EndpointMatcher if dependencies are available.
-- `create_llm_matcher(fast_provider, accurate_provider)` — Create an LLM-based matcher if litellm is available.
-- `create_sanitizer(strict, allow_html)` — Create a sanitizer with common configurations.
-- `get_config()` — Get global configuration.
-- `init_config(env_file)` — Initialize configuration with custom env file.
-- `reload_config()` — Reload global configuration.
-- `get_openai_config()` — Get OpenAI configuration.
-- `get_grpc_config()` — Get gRPC configuration.
-- `get_mqtt_config()` — Get MQTT configuration.
-- `get_smtp_config()` — Get SMTP configuration.
-- `get_websocket_config()` — Get WebSocket configuration.
-- `get_server_config()` — Get server configuration.
-- `is_debug()` — Check if debug mode is enabled.
-- `is_test_mode()` — Check if test mode is enabled.
-- `quick_generate(prompt, provider)` — Quick one-off generation without instantiating class.
-- `match_intent(query, candidates, provider)` — Use LLM to select best match from candidates.
-- `self_correct(error, context, provider)` — Use LLM to self-correct from error.
-- `query_to_md(query, provider)` — Quick conversion from query to MD template.
-- `batch_generate(queries, provider)` — Generate multiple templates in parallel.
-- `create_optimizer(enable_compression, enable_image_optimization, chunk_size)` — Create an optimizer with common configurations.
-- `demo_security()` — Demonstrate security features with attack samples.
+- `test_example()` — —
+- `test_example()` — —
+- `test_example()` — —
 - `print_header()` — —
 - `print_status()` — —
 - `print_success()` — —
@@ -270,39 +308,164 @@ propact/
 - `exit()` — —
 - `exit()` — —
 - `exit()` — —
+- `demo_security()` — Demonstrate security features with attack samples.
 - `exit()` — —
 - `exit()` — —
+- `get_config()` — Get global configuration.
+- `init_config(env_file)` — Initialize configuration with custom env file.
+- `reload_config()` — Reload global configuration.
+- `get_openai_config()` — Get OpenAI configuration.
+- `get_grpc_config()` — Get gRPC configuration.
+- `get_mqtt_config()` — Get MQTT configuration.
+- `get_smtp_config()` — Get SMTP configuration.
+- `get_websocket_config()` — Get WebSocket configuration.
+- `get_server_config()` — Get server configuration.
+- `is_debug()` — Check if debug mode is enabled.
+- `is_test_mode()` — Check if test mode is enabled.
+- `cli()` — Propact: Protocol Pact via Markdown.
+- `main(file_path, protocol, endpoint, openapi)` — Execute Protocol Pact documents.
+- `list_blocks(pact)` — List all protocol blocks in the document.
+- `display_results(results, verbose)` — Display execution results.
+- `convert()` — Convert between different formats (SQL, GraphQL, YAML, CSV, XML).
+- `file(input_file, from_format, to_format, output)` — Convert a file from one format to another.
+- `string(content, from_format, to_format, dialect)` — Convert a string from one format to another.
+- `formats()` — List all supported formats.
+- `universal(input_path, to_md, to_pdf, to_docx)` — Universal document converter (PDF, DOCX, PPTX, XLSX, HTML, Email ↔ MD).
+- `send_email(markdown_file, to_emails, subject, smtp_host)` — Send Markdown as rich HTML email.
+- `batch(directory, to_md, output_dir, pattern)` — Batch convert files in a directory.
+- `get_protocol_adapter(protocol, endpoint)` — Get appropriate protocol adapter.
+- `create_matcher(model_name, error_handler)` — Create an EndpointMatcher if dependencies are available.
+- `create_llm_matcher(fast_provider, accurate_provider)` — Create an LLM-based matcher if litellm is available.
+- `create_sanitizer(strict, allow_html)` — Create a sanitizer with common configurations.
+- `run_example(example_dir, endpoint, schema, mode)` — Run a propact example with the given parameters.
+- `create_optimizer(enable_compression, enable_image_optimization, chunk_size)` — Create an optimizer with common configurations.
+- `quick_generate(prompt, provider)` — Quick one-off generation without instantiating class.
+- `match_intent(query, candidates, provider)` — Use LLM to select best match from candidates.
+- `self_correct(error, context, provider)` — Use LLM to self-correct from error.
+- `query_to_md(query, provider)` — Quick conversion from query to MD template.
+- `batch_generate(queries, provider)` — Generate multiple templates in parallel.
 
 
 ## Project Structure
 
+📄 `CHANGELOG`
+📄 `Makefile`
+📄 `README`
+📄 `TODO`
+📄 `TODO.Projekty, które realziuje, mają za zadanie algoryt`
+📄 `TODO.chodzi o stworzenie biblitoeki, ktora będzie dział`
+📄 `TODO.chodzi o stworzenie prostej alternatywy adresowane`
+📄 `TODO.podaj mozliwosci zastoswania oraz podaj jakie prot`
+📄 `TODO.stworz przyklady uzycia dla examples___z roznymi r`
+📄 `TODO.zaproponuj przydatne biblioteki python do stworzen`
+📄 `TODO.zdecydowalem sie na anzwe propact_stworz struktur`
+📄 `TODO.🏗️ __Implementacja konwersji w Propact__ (kod goto`
+📄 `docs.README`
+📄 `docs.api`
+📄 `docs.error-handling`
+📄 `docs.openapi-llm`
+📄 `docs.security`
+📄 `docs.semantic-matching`
+📄 `docs.usage`
+📄 `examples.01-shell-upload.README`
 📄 `examples.01-shell-upload.run`
-📄 `examples.02-openapi-rest.run`
-📄 `examples.03-mcp-tool.run`
-📄 `examples.04-ws-chat.run`
+📄 `examples.02-openapi-rest.README`
+📄 `examples.03-mcp-tool.README`
+📄 `examples.04-ws-chat.README`
+📄 `examples.05-md-server.README`
 📄 `examples.05-md-server.run`
+📄 `examples.05-security-hardening.README`
+📄 `examples.05-security-hardening.attack_samples`
 📄 `examples.05-security-hardening.run`
 📄 `examples.05-security-hardening.secure_handler` (7 functions, 2 classes)
-📄 `examples.06-openai-vision.run`
-📄 `examples.07-ffmpeg-cli.run`
-📄 `examples.08-grpc-inference.run`
+📄 `examples.06-openai-vision.README`
+📄 `examples.07-ffmpeg-cli.README`
+📄 `examples.08-grpc-inference.README`
+📄 `examples.09-imgur.README`
+📄 `examples.09-imgur.README.response`
 📄 `examples.09-imgur.run` (1 functions)
+📄 `examples.10-slack.README`
 📄 `examples.10-slack.run` (1 functions)
+📄 `examples.10-slack.slack-openapi`
+📄 `examples.11-discord.README`
 📄 `examples.11-discord.run` (1 functions)
+📄 `examples.12-openai-vision.README`
 📄 `examples.12-openai-vision.run` (1 functions)
+📄 `examples.13-github-gist.README`
+📄 `examples.13-github-gist.README.response`
 📄 `examples.13-github-gist.run` (1 functions)
+📄 `examples.14-stripe.README`
 📄 `examples.14-stripe.run` (1 functions)
+📄 `examples.15-youtube.README`
 📄 `examples.15-youtube.run` (1 functions)
+📄 `examples.16-notion.README`
 📄 `examples.16-notion.run` (1 functions)
+📄 `examples.17-twitter.README`
 📄 `examples.17-twitter.run` (1 functions)
+📄 `examples.18-todo-api.README`
+📄 `examples.18-todo-api.README.response`
+📄 `examples.18-todo-api.run`
+📄 `examples.19-users-api.README`
+📄 `examples.19-users-api.README.response`
+📄 `examples.19-users-api.run`
+📄 `examples.20-posts-api.README`
+📄 `examples.20-posts-api.README.response`
+📄 `examples.20-posts-api.run`
+📄 `examples.21-albums-api.README`
+📄 `examples.21-albums-api.run`
+📄 `examples.22-comments-api.README`
+📄 `examples.22-comments-api.README.response`
+📄 `examples.22-comments-api.run`
+📄 `examples.23-photos-api.README`
+📄 `examples.23-photos-api.README.response`
+📄 `examples.23-photos-api.run`
+📄 `examples.Makefile`
+📄 `examples.README`
+📄 `examples.dsl.01-sql-insert.README`
+📄 `examples.dsl.02-graphql.README`
+📄 `examples.dsl.03-csv-xml.README`
+📄 `examples.error-demo.README`
+📄 `examples.error-demo.README.response`
+📄 `examples.error-demo.ecommerce-api`
+📄 `examples.openapi-llm-demo.README`
+📄 `examples.openapi-llm-demo.notion-openapi`
+📄 `examples.public-apis.01-weather.README`
+📄 `examples.public-apis.01-weather.README.response`
+📄 `examples.public-apis.02-currency.README`
+📄 `examples.public-apis.02-currency.README.response`
+📄 `examples.public-apis.03-stocks.README`
+📄 `examples.public-apis.03-stocks.README.response`
+📄 `examples.public-apis.04-crypto.README`
+📄 `examples.public-apis.04-crypto.README.response`
+📄 `examples.public-apis.05-newsapi.org.README`
+📄 `examples.public-apis.05-newsapi.org.README.response`
+📄 `examples.public-apis.06-restcountries.com.README`
+📄 `examples.public-apis.06-restcountries.com.README.response`
+📄 `examples.public-apis.07-ipapi.co.README`
+📄 `examples.public-apis.07-ipapi.co.README.response`
+📄 `examples.public-apis.README`
 📄 `examples.public-apis.demo-public`
+📄 `examples.rest-ws-proxy.README`
+📄 `examples.rest-ws-proxy.README.response`
 📄 `examples.run-all` (11 functions)
+📄 `examples.run-new-examples`
+📄 `examples.shell-to-mcp.README`
+📄 `examples.smart-test.README`
+📄 `examples.smart-test.README.response`
+📄 `examples.smart-test.openapi`
+📄 `goal`
+📄 `planfile`
+📄 `prefact`
 📄 `project`
+📄 `pyproject`
+📄 `report`
+📄 `sample_data`
 📦 `src.propact`
 📄 `src.propact.adapters` (17 functions, 6 classes)
 📄 `src.propact.attachments` (7 functions, 1 classes)
 📄 `src.propact.cli` (11 functions)
 📄 `src.propact.config` (19 functions, 12 classes)
+📄 `src.propact.constants`
 📄 `src.propact.converter` (15 functions, 3 classes)
 📄 `src.propact.core` (8 functions, 1 classes)
 📄 `src.propact.dsl_converter` (30 functions, 8 classes)
@@ -320,8 +483,12 @@ propact/
 📄 `src.propact.protocols.ws` (7 functions, 3 classes)
 📄 `src.propact.query_gen` (8 functions, 1 classes)
 📄 `src.propact.security` (10 functions, 2 classes)
+📄 `src.propact.testing` (7 functions, 1 classes)
 📄 `src.propact.uniconverter` (17 functions, 3 classes)
 📄 `src.propact.validation` (11 functions, 4 classes)
+📄 `test_all_examples` (1 functions)
+📄 `test_examples_final` (1 functions)
+📄 `verify_examples` (1 functions)
 
 ## Requirements
 
@@ -333,8 +500,7 @@ propact/
 - Tom Softreck <tom@sapletta.com>
 - Tom Sapletta <tom-sapletta-com@users.noreply.github.com>
 
-We welcome contributions! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
-
+We welcome contributions! Open an issue or pull request to get started.
 ### Development Setup
 
 ```bash
@@ -351,10 +517,7 @@ pytest
 
 ## Documentation
 
-- 📖 [Full Documentation](https://github.com/pactown-com/propact/tree/main/docs) — API reference, module docs, architecture
-- 🚀 [Getting Started](https://github.com/pactown-com/propact/blob/main/docs/getting-started.md) — Quick start guide
-- 📚 [API Reference](https://github.com/pactown-com/propact/blob/main/docs/api.md) — Complete API documentation
-- 🔧 [Configuration](https://github.com/pactown-com/propact/blob/main/docs/configuration.md) — Configuration options
+- 📚 [API Reference](./docs/api.md) — Complete API documentation
 - 💡 [Examples](./examples) — Usage examples and code samples
 
 ### Generated Files
@@ -362,16 +525,7 @@ pytest
 | Output | Description | Link |
 |--------|-------------|------|
 | `README.md` | Project overview (this file) | — |
-| `docs/api.md` | Consolidated API reference | [View](./docs/api.md) |
-| `docs/modules.md` | Module reference with metrics | [View](./docs/modules.md) |
-| `docs/architecture.md` | Architecture with diagrams | [View](./docs/architecture.md) |
-| `docs/dependency-graph.md` | Dependency graphs | [View](./docs/dependency-graph.md) |
-| `docs/coverage.md` | Docstring coverage report | [View](./docs/coverage.md) |
-| `docs/getting-started.md` | Getting started guide | [View](./docs/getting-started.md) |
-| `docs/configuration.md` | Configuration reference | [View](./docs/configuration.md) |
-| `docs/api-changelog.md` | API change tracking | [View](./docs/api-changelog.md) |
-| `CONTRIBUTING.md` | Contribution guidelines | [View](./CONTRIBUTING.md) |
-| `examples/` | Usage examples | [Browse](./examples) |
-| `mkdocs.yml` | MkDocs configuration | — |
+| `docs/api.md` | Complete API documentation | [View](./docs/api.md) |
+| `examples` | Usage examples and code samples | [View](./examples) |
 
 <!-- code2docs:end -->

@@ -1,0 +1,123 @@
+// LESS format — define @variables here as needed
+
+app {
+  name: propact;
+  version: 0.0.0;
+}
+
+workflow[name="install"] {
+  trigger: manual;
+  step-1: run cmd=poetry install;
+}
+
+workflow[name="dev"] {
+  trigger: manual;
+  step-1: run cmd=poetry install --with dev;
+}
+
+workflow[name="test"] {
+  trigger: manual;
+  step-1: run cmd=poetry run pytest -vv;
+}
+
+workflow[name="test-cov"] {
+  trigger: manual;
+  step-1: run cmd=poetry run pytest --cov=propact --cov-report=html --cov-report=term;
+}
+
+workflow[name="lint"] {
+  trigger: manual;
+  step-1: run cmd=poetry run ruff check src/ tests/;
+  step-2: run cmd=poetry run ruff format src/ tests/;
+}
+
+workflow[name="type-check"] {
+  trigger: manual;
+  step-1: run cmd=poetry run mypy src/;
+}
+
+workflow[name="check"] {
+  trigger: manual;
+  step-1: depend target=lint;
+  step-2: depend target=type-check;
+  step-3: depend target=test;
+}
+
+workflow[name="clean"] {
+  trigger: manual;
+  step-1: run cmd=rm -rf dist/;
+  step-2: run cmd=rm -rf *.egg-info/;
+  step-3: run cmd=rm -rf .pytest_cache/;
+  step-4: run cmd=rm -rf .coverage;
+  step-5: run cmd=rm -rf htmlcov/;
+  step-6: run cmd=find . -type d -name __pycache__ -exec rm -rf {} +;
+  step-7: run cmd=find . -type f -name "*.pyc" -delete;
+}
+
+workflow[name="build"] {
+  trigger: manual;
+  step-1: run cmd=poetry build;
+}
+
+workflow[name="publish"] {
+  trigger: manual;
+  step-1: run cmd=poetry publish;
+}
+
+workflow[name="publish-test"] {
+  trigger: manual;
+  step-1: run cmd=poetry publish --repository testpypi;
+}
+
+workflow[name="docs"] {
+  trigger: manual;
+  step-1: run cmd=echo "Documentation generation not yet implemented";
+}
+
+workflow[name="dev-server"] {
+  trigger: manual;
+  step-1: run cmd=echo "No development server available";
+}
+
+workflow[name="format"] {
+  trigger: manual;
+  step-1: run cmd=poetry run ruff format src/ tests/;
+}
+
+workflow[name="fix"] {
+  trigger: manual;
+  step-1: run cmd=poetry run ruff check --fix src/ tests/;
+}
+
+workflow[name="llm-test"] {
+  trigger: manual;
+  step-1: run cmd=poetry run python -c "from propact.llm_proxy import LiteLLMProxy; print('LiteLLM import OK')";
+  step-2: run cmd=poetry run propact --help | grep -q llm-provider && echo "CLI LLM flags OK";
+  step-3: run cmd=echo "✅ LiteLLM multi-provider configuration OK!";
+}
+
+workflow[name="llm-bench"] {
+  trigger: manual;
+  step-1: run cmd=echo "Benchmarking LLM providers...";
+  step-2: run cmd=poetry run python -c "import asyncio; from propact.llm_proxy import quick_generate; asyncio.run(quick_generate('Say hello', provider='local'))" 2>/dev/null || echo "Ollama not available";
+  step-3: run cmd=echo "✅ LLM benchmark complete";
+}
+
+workflow[name="public-demo"] {
+  trigger: manual;
+  step-1: run cmd=echo "🚀 Running public APIs demo...";
+  step-2: run cmd=cd examples/public-apis && ./demo-public.sh;
+}
+
+workflow[name="install-llm"] {
+  trigger: manual;
+  step-1: run cmd=poetry install --extras llm;
+}
+
+deploy {
+  target: makefile;
+}
+
+environment[name="local"] {
+  runtime: docker-compose;
+}

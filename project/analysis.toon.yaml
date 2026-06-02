@@ -1,66 +1,202 @@
-# code2llm | 25f 7118L | python:24,shell:1 | 2026-03-27
-# CC̄=3.8 | critical:9/280 | dups:0 | cycles:0
+# code2llm | 63f 11319L | python:27,shell:25,json:5,yaml:3,toml:1 | 2026-06-01
+# generated in 0.03s
+# CC̅=3.5 | critical:10/290 | dups:0 | cycles:0
 
-HEALTH[10]:
+HEALTH[11]:
   🔴 GOD   src/propact/dsl_converter.py = 811L, 8 classes, 30m, max CC=18
-  🟡 CC    send CC=16 (limit:15)
   🟡 CC    file CC=15 (limit:15)
   🟡 CC    universal CC=17 (limit:15)
   🟡 CC    _parse_md_table CC=15 (limit:15)
   🟡 CC    _create_md_table CC=15 (limit:15)
   🟡 CC    from_markdown CC=18 (limit:15)
-  🟡 CC    send_to_endpoint CC=20 (limit:15)
-  🟡 CC    _md_to_docx CC=23 (limit:15)
+  🟡 CC    send CC=16 (limit:15)
   🟡 CC    validate CC=16 (limit:15)
+  🟡 CC    send_to_endpoint CC=18 (limit:15)
+  🟡 CC    _send_rest CC=17 (limit:15)
+  🟡 CC    _md_to_docx CC=23 (limit:15)
 
 REFACTOR[2]:
   1. split src/propact/dsl_converter.py  (god module)
-  2. split 9 high-CC methods  (CC>15)
+  2. split 10 high-CC methods  (CC>15)
 
-PIPELINES[218]:
-  [1] Src [import_browser_spec]: import_browser_spec
+PIPELINES[225]:
+  [1] Src [__init__]: __init__
       PURITY: 100% pure
-  [2] Src [is_llm_enhanced]: is_llm_enhanced
+  [2] Src [handle_violation]: handle_violation
       PURITY: 100% pure
-  [3] Src [extract_llm_descriptions]: extract_llm_descriptions
+  [3] Src [get_report]: get_report
       PURITY: 100% pure
-  [4] Src [__init__]: __init__
+  [4] Src [__init__]: __init__ → create_sanitizer
       PURITY: 100% pure
-  [5] Src [send]: send
+  [5] Src [process]: process
+      PURITY: 100% pure
+  [6] Src [get_security_report]: get_security_report
+      PURITY: 100% pure
+  [7] Src [demo_security]: demo_security
+      PURITY: 100% pure
+  [8] Src [__init__]: __init__
+      PURITY: 100% pure
+  [9] Src [_find_env_file]: _find_env_file
+      PURITY: 100% pure
+  [10] Src [_load_env]: _load_env
+      PURITY: 100% pure
+  [11] Src [_get_env_bool]: _get_env_bool
+      PURITY: 100% pure
+  [12] Src [_get_env_int]: _get_env_int
+      PURITY: 100% pure
+  [13] Src [_get_env_path]: _get_env_path
+      PURITY: 100% pure
+  [14] Src [_load_config]: _load_config
+      PURITY: 100% pure
+  [15] Src [reload]: reload
+      PURITY: 100% pure
+  [16] Src [init_config]: init_config
+      PURITY: 100% pure
+  [17] Src [reload_config]: reload_config
+      PURITY: 100% pure
+  [18] Src [get_openai_config]: get_openai_config → get_config
+      PURITY: 100% pure
+  [19] Src [get_grpc_config]: get_grpc_config → get_config
+      PURITY: 100% pure
+  [20] Src [get_websocket_config]: get_websocket_config → get_config
+      PURITY: 100% pure
+  [21] Src [is_debug]: is_debug → get_config
+      PURITY: 100% pure
+  [22] Src [is_test_mode]: is_test_mode → get_config
+      PURITY: 100% pure
+  [23] Src [cli]: cli
+      PURITY: 100% pure
+  [24] Src [main]: main → get_server_config → get_config
+      PURITY: 100% pure
+  [25] Src [convert]: convert
+      PURITY: 100% pure
+  [26] Src [file]: file
+      PURITY: 100% pure
+  [27] Src [string]: string
+      PURITY: 100% pure
+  [28] Src [formats]: formats
+      PURITY: 100% pure
+  [29] Src [universal]: universal
+      PURITY: 100% pure
+  [30] Src [send_email]: send_email
+      PURITY: 100% pure
+  [31] Src [batch]: batch
+      PURITY: 100% pure
+  [32] Src [import_browser_spec]: import_browser_spec
+      PURITY: 100% pure
+  [33] Src [is_llm_enhanced]: is_llm_enhanced
+      PURITY: 100% pure
+  [34] Src [extract_llm_descriptions]: extract_llm_descriptions
+      PURITY: 100% pure
+  [35] Src [__init__]: __init__
+      PURITY: 100% pure
+  [36] Src [_parse_md_table]: _parse_md_table
+      PURITY: 100% pure
+  [37] Src [_create_md_table]: _create_md_table
+      PURITY: 100% pure
+  [38] Src [__init__]: __init__
+      PURITY: 100% pure
+  [39] Src [to_markdown]: to_markdown
+      PURITY: 100% pure
+  [40] Src [from_markdown]: from_markdown
+      PURITY: 100% pure
+  [41] Src [_mock_sql_result]: _mock_sql_result
+      PURITY: 100% pure
+  [42] Src [to_markdown]: to_markdown
+      PURITY: 100% pure
+  [43] Src [from_markdown]: from_markdown
+      PURITY: 100% pure
+  [44] Src [_extract_structured_data]: _extract_structured_data
+      PURITY: 100% pure
+  [45] Src [_generate_github_query]: _generate_github_query
+      PURITY: 100% pure
+  [46] Src [to_markdown]: to_markdown
+      PURITY: 100% pure
+  [47] Src [from_markdown]: from_markdown
+      PURITY: 100% pure
+  [48] Src [_dict_to_markdown]: _dict_to_markdown
+      PURITY: 100% pure
+  [49] Src [_list_to_markdown]: _list_to_markdown
+      PURITY: 100% pure
+  [50] Src [_markdown_to_dict]: _markdown_to_dict
       PURITY: 100% pure
 
 LAYERS:
   src/                            CC̄=3.8    ←in:0  →out:0
   │ !! dsl_converter              811L  8C   30m  CC=18     ←0
   │ !! uniconverter               759L  3C   17m  CC=23     ←0
-  │ !! cli                        656L  0C   11m  CC=17     ←0
+  │ !! cli                        666L  0C   11m  CC=17     ←0
   │ matcher                    444L  2C   14m  CC=10     ←1
+  │ !! enhanced                   416L  2C   16m  CC=18     ←0
   │ !! validation                 414L  4C   11m  CC=16     ←0
-  │ !! enhanced                   409L  2C   16m  CC=20     ←0
-  │ !! adapters                   368L  6C   17m  CC=16     ←1
-  │ converter                  368L  3C   15m  CC=13     ←1
+  │ converter                  375L  3C   15m  CC=13     ←0
+  │ !! adapters                   366L  6C   17m  CC=16     ←1
+  │ config                     364L  12C   19m  CC=3      ←3
   │ error_handler              361L  3C   15m  CC=14     ←0
   │ optimization               361L  3C   13m  CC=9      ←1
-  │ config                     356L  12C   19m  CC=3      ←2
   │ llm_proxy                  278L  2C   10m  CC=8      ←1
   │ security                   263L  2C   10m  CC=13     ←1
-  │ core                       237L  1C    8m  CC=13     ←0
+  │ core                       236L  1C    8m  CC=13     ←0
+  │ testing                    201L  1C    7m  CC=12     ←0
   │ query_gen                  201L  1C    8m  CC=2      ←0
   │ ws                         149L  3C    7m  CC=3      ←0
   │ rest                       127L  4C    6m  CC=4      ←0
-  │ importer                   115L  1C    4m  CC=8      ←1
+  │ importer                   115L  1C    4m  CC=8      ←0
   │ mcp                        110L  2C    7m  CC=1      ←0
-  │ parser                     102L  3C    5m  CC=4      ←0
-  │ attachments                 94L  1C    7m  CC=6      ←0
+  │ parser                     100L  3C    5m  CC=4      ←0
+  │ attachments                 93L  1C    7m  CC=6      ←0
   │ shell                       74L  1C    3m  CC=6      ←0
+  │ constants                   62L  0C    0m  CC=0.0    ←0
   │ __init__                    29L  0C    0m  CC=0.0    ←0
   │ __init__                     8L  0C    0m  CC=0.0    ←0
   │
+  examples/                       CC̄=0.8    ←in:0  →out:0
+  │ run-all.sh                 371L  0C   11m  CC=0.0    ←0
+  │ secure_handler             254L  2C    7m  CC=9      ←0
+  │ Makefile                   203L  0C    0m  CC=0.0    ←0
+  │ slack-openapi.json          78L  0C    0m  CC=0.0    ←0
+  │ notion-openapi.json         78L  0C    0m  CC=0.0    ←0
+  │ openapi.json                57L  0C    0m  CC=0.0    ←0
+  │ run.sh                      51L  0C    0m  CC=0.0    ←0
+  │ demo-public.sh              49L  0C    0m  CC=0.0    ←0
+  │ run.sh                      47L  0C    1m  CC=0.0    ←0
+  │ run.sh                      46L  0C    1m  CC=0.0    ←0
+  │ run.sh                      46L  0C    1m  CC=0.0    ←0
+  │ run.sh                      46L  0C    1m  CC=0.0    ←0
+  │ run.sh                      46L  0C    1m  CC=0.0    ←0
+  │ run.sh                      45L  0C    1m  CC=0.0    ←0
+  │ run.sh                      42L  0C    1m  CC=0.0    ←0
+  │ run.sh                      42L  0C    1m  CC=0.0    ←0
+  │ run.sh                      42L  0C    1m  CC=0.0    ←0
+  │ run-new-examples.sh         41L  0C    0m  CC=0.0    ←0
+  │ run.sh                      40L  0C    0m  CC=0.0    ←0
+  │ run.sh                      40L  0C    0m  CC=0.0    ←0
+  │ run.sh                      40L  0C    0m  CC=0.0    ←0
+  │ run.sh                      39L  0C    0m  CC=0.0    ←0
+  │ ecommerce-api.json          39L  0C    0m  CC=0.0    ←0
+  │ run.sh                      37L  0C    0m  CC=0.0    ←0
+  │ run.sh                      37L  0C    0m  CC=0.0    ←0
+  │ run.sh                      37L  0C    0m  CC=0.0    ←0
+  │ run.sh                      36L  0C    0m  CC=0.0    ←0
+  │
   ./                              CC̄=0.0    ←in:0  →out:0
-  │ project.sh                  24L  0C    0m  CC=0.0    ←0
+  │ !! planfile.yaml              864L  0C    0m  CC=0.0    ←0
+  │ !! goal.yaml                  512L  0C    0m  CC=0.0    ←0
+  │ verify_examples.sh         116L  0C    1m  CC=0.0    ←0
+  │ pyproject.toml             103L  0C    0m  CC=0.0    ←0
+  │ test_examples_final.sh     100L  0C    1m  CC=0.0    ←0
+  │ test_all_examples.sh        94L  0C    1m  CC=0.0    ←0
+  │ Makefile                    85L  0C    0m  CC=0.0    ←0
+  │ prefact.yaml                78L  0C    0m  CC=0.0    ←0
+  │ project.sh                  50L  0C    0m  CC=0.0    ←0
+  │ sample_data.json             5L  0C    0m  CC=0.0    ←0
   │
 
-COUPLING: no cross-package imports detected
+COUPLING:
+                                  examples.05-security-hardening                     src.propact
+  examples.05-security-hardening                              ──                               2
+                     src.propact                              ←2                              ──
+  CYCLES: none
 
 EXTERNAL:
   validation: run `vallm batch .` → validation.toon

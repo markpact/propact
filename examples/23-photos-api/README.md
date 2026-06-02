@@ -50,24 +50,3 @@ poetry run propact run README.md \
 Response is saved to `README.response.md` with markdown formatting:
 
 ```markdown
-# Response from Propact
-
-**Status:** 200
-
-## JSON Response
-
-```json
-{
-  "albumId": 1,
-  "id": 1,
-  "title": "accusamus beatae ad facilis cum similique qui sunt",
-  "url": "https://via.placeholder.com/600/92c952",
-  "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-}
-```
-
-## Files
-
-- `README.md` - This file with example description
-- `run.sh` - Script to run the example
-- `README.response.md` - Generated response file (created after running)

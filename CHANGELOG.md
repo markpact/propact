@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.10] - 2026-06-01
+
+### Fixed
+- Fix magic-numbers issues (ticket-92b137f2)
+- Fix unused-imports issues (ticket-08b3f855)
+- Fix ai-boilerplate issues (ticket-abdccc92)
+- Fix smart-return-type issues (ticket-4909c1d6)
+- Fix unused-imports issues (ticket-649b7dc4)
+- Fix llm-hallucinations issues (ticket-1fc7d3db)
+- Fix llm-generated-code issues (ticket-fe092c1e)
+- Fix smart-return-type issues (ticket-15c62885)
+- Fix unused-imports issues (ticket-29e021b3)
+
 ## [0.1.10] - 2026-03-27
 
 ### Fixed
@@ -108,6 +121,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix llm-generated-code issues (ticket-97138167)
 
 ## [Unreleased]
+
+## [0.0.10] - 2026-06-02
+
+### Docs
+- Update CHANGELOG.md
+- Update README.md
+- Update SUMD.md
+- Update SUMR.md
+- Update TODO.md
+- Update docs/README.md
+- Update examples/18-todo-api/README.md
+- Update examples/19-users-api/README.md
+- Update examples/20-posts-api/README.md
+- Update examples/21-albums-api/README.md
+- ... and 4 more files
+
+### Test
+- Update testql-scenarios/generated-cli-tests.testql.toon.yaml
+- Update testql-scenarios/generated-from-pytests.testql.toon.yaml
+- Update tests/conftest.py
+- Update tests/test_webpatch_adapter.py
+- Update tests/test_webpatch_contract.py
+
+### Other
+- Update .koru/event-store.jsonl
+- Update .koru/events/observability.jsonl
+- Update .koru/history.jsonl
+- Update .koru/onboarding.json
+- Update .koru/project.json
+- Update .planfile/.koru/autonomous-state.json
+- Update .planfile/.koru/autonomy-telemetry.json
+- Update .planfile/.koru/command_catalogs/windsurf-0.2.0.json
+- Update .planfile/.koru/event-store.jsonl
+- Update .planfile/.koru/koru-autopilot-windsurf.daemon.json
+- ... and 30 more files
 
 ## [0.0.9] - 2026-03-27
 

@@ -233,10 +233,93 @@ class EndpointMatcher:
         return await self.match(md_content, spec, top_k)
 
 
-def create_matcher(model_name: str = "all-MiniLM-L6-v2", error_handler: Optional[PropactErrorHandler] = None) -> Optional[EndpointMatcher]:
+class BasicEndpointMatcher:
+    """Dependency-light endpoint matcher using keyword overlap."""
+
+    def __init__(self, error_handler: Optional[PropactErrorHandler] = None):
+        self.error_handler = error_handler or PropactErrorHandler(ErrorMode.RECOVER)
+
+    def _extract_intent(self, md_content: str) -> str:
+        text = re.sub(r'!\[.*?\]\(.*?\)|```.*?```', '', md_content, flags=re.DOTALL)
+        headers = re.findall(r'^#+\s*(.*?)$', text, re.MULTILINE)
+        first_para = re.split(r'\n\n', text.strip())[0] if text.strip() else ""
+        parts = []
+        if headers:
+            parts.append(" ".join(headers[:3]))
+        if first_para:
+            parts.append(first_para[:200])
+        return " ".join(parts).strip()[:500]
+
+    def _extract_endpoints(self, openapi_spec: Dict[str, Any]) -> List[Tuple[str, str, str]]:
+        endpoints = []
+        if not openapi_spec or "paths" not in openapi_spec:
+            return endpoints
+
+        for path, path_item in openapi_spec["paths"].items():
+            for method, operation in path_item.items():
+                if method.upper() in ["GET", "POST", "PUT", "DELETE", "PATCH"]:
+                    summary = operation.get("summary", "")
+                    description = operation.get("description", "")
+                    op_id = operation.get("operationId", "")
+                    combined = f"{summary} {description} {op_id} {path}".strip()
+                    endpoints.append((method.upper(), path, combined))
+        return endpoints
+
+    async def match(self, md_content: str, openapi_spec: Dict[str, Any], top_k: int = 3) -> List[Dict[str, Any]]:
+        intent = self._extract_intent(md_content).lower()
+        intent_tokens = set(re.findall(r"[a-z0-9_]+", intent))
+
+        endpoints = self._extract_endpoints(openapi_spec)
+        if not endpoints:
+            return []
+
+        similarities: List[Tuple[str, str, float]] = []
+        for method, path, description in endpoints:
+            desc_tokens = set(re.findall(r"[a-z0-9_]+", description.lower()))
+            if intent_tokens and desc_tokens:
+                score = len(intent_tokens & desc_tokens) / len(intent_tokens)
+            else:
+                score = 0.0
+            similarities.append((method, path, float(score)))
+
+        similarities.sort(key=lambda x: x[2], reverse=True)
+        best_score = similarities[0][2] if similarities else 0.0
+
+        if best_score < 0.3 and self.error_handler:
+            error = MatchError(
+                type="no_match",
+                confidence=best_score,
+                error_msg=f"No good match found (best score: {best_score:.3f})",
+                candidates=[{"method": m, "path": p, "score": s} for m, p, s in similarities[:3]],
+            )
+            recovered_endpoint = await self.error_handler.handle_match_failure(
+                error, md_content, openapi_spec
+            )
+            if recovered_endpoint:
+                parts = recovered_endpoint.split(' ', 1)
+                if len(parts) == 2:
+                    method, path = parts
+                    return [{
+                        "method": method,
+                        "path": path,
+                        "score": 0.5,
+                        "endpoint": recovered_endpoint,
+                        "recovered": True,
+                    }]
+
+        return [{
+            "method": method,
+            "path": path,
+            "score": score,
+            "endpoint": f"{method} {path}",
+            "recovered": False,
+        } for method, path, score in similarities[:top_k]]
+
+
+def create_matcher(model_name: str = "all-MiniLM-L6-v2", error_handler: Optional[PropactErrorHandler] = None):
     """Create an EndpointMatcher if dependencies are available."""
     if not HAS_SEMANTIC:
-        return None
+        return BasicEndpointMatcher(error_handler)
     return EndpointMatcher(model_name, error_handler)
 
 

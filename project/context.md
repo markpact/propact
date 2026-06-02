@@ -1,15 +1,16 @@
 # System Architecture Analysis
+<!-- generated in 0.01s -->
 
 ## Overview
 
 - **Project**: /home/tom/github/pactown-com/propact
 - **Primary Language**: python
-- **Languages**: python: 25, shell: 21
+- **Languages**: python: 27, shell: 25, json: 5, yaml: 3, toml: 1
 - **Analysis Mode**: static
-- **Total Functions**: 280
-- **Total Classes**: 69
-- **Modules**: 46
-- **Entry Points**: 269
+- **Total Functions**: 290
+- **Total Classes**: 70
+- **Modules**: 63
+- **Entry Points**: 279
 
 ## Architecture by Module
 
@@ -58,13 +59,13 @@
 - **Classes**: 3
 - **File**: `optimization.py`
 
-### src.propact.cli
-- **Functions**: 11
-- **File**: `cli.py`
-
 ### examples.run-all
 - **Functions**: 11
 - **File**: `run-all.sh`
+
+### src.propact.cli
+- **Functions**: 11
+- **File**: `cli.py`
 
 ### src.propact.validation
 - **Functions**: 11
@@ -91,6 +92,16 @@
 - **Classes**: 1
 - **File**: `query_gen.py`
 
+### examples.05-security-hardening.secure_handler
+- **Functions**: 7
+- **Classes**: 2
+- **File**: `secure_handler.py`
+
+### src.propact.testing
+- **Functions**: 7
+- **Classes**: 1
+- **File**: `testing.py`
+
 ### src.propact.attachments
 - **Functions**: 7
 - **Classes**: 1
@@ -100,16 +111,6 @@
 - **Functions**: 7
 - **Classes**: 2
 - **File**: `mcp.py`
-
-### src.propact.protocols.ws
-- **Functions**: 7
-- **Classes**: 3
-- **File**: `ws.py`
-
-### examples.05-security-hardening.secure_handler
-- **Functions**: 7
-- **Classes**: 2
-- **File**: `secure_handler.py`
 
 ## Key Entry Points
 
@@ -133,6 +134,10 @@ FILE_PATH: Path to the markdown file containing protocol blocks.
 > Universal document converter (PDF, DOCX, PPTX, XLSX, HTML, Email ↔ MD).
 - **Calls**: cli.command, click.argument, click.option, click.option, click.option, click.option, click.option, click.option
 
+### examples.05-security-hardening.secure_handler.demo_security
+> Demonstrate security features with attack samples.
+- **Calls**: print, SecureMarkdownHandler, attack_file.read_text, print, print, print, print, print
+
 ### src.propact.enhanced.Propact.send_to_endpoint
 > Send split markdown content to endpoint and convert response to markdown.
 
@@ -141,11 +146,7 @@ Args:
     
 Returns:
     Response 
-- **Calls**: self._smart_split_md, MDConverter.prepare_payload, endpoint.startswith, self.file_path.with_suffix, output_path.write_text, endpoint.startswith, None.get, MDConverter.response_to_markdown
-
-### examples.05-security-hardening.secure_handler.demo_security
-> Demonstrate security features with attack samples.
-- **Calls**: print, SecureMarkdownHandler, attack_file.read_text, print, print, print, print, print
+- **Calls**: self._smart_split_md, MDConverter.prepare_payload, endpoint.startswith, self.file_path.with_suffix, output_path.write_text, endpoint.startswith, self._response_to_md, str
 
 ### src.propact.core.ToonPact.smart_send
 > Send markdown content to the best-matched endpoint using semantic matching.
@@ -188,6 +189,16 @@ Args:
 > Convert a string from one format to another.
 - **Calls**: convert.command, click.argument, click.option, click.option, click.option, click.option, click.option, click.option
 
+### examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process
+> Process markdown content with security checks.
+
+Args:
+    markdown_content: Raw markdown content
+    source: Source identifier for logging
+    
+Return
+- **Calls**: None.isoformat, self.sanitizer.audit, self.sanitizer.sanitize, self.optimizer.optimize, MarkdownParser, self.logger.info, None.extend, self.pipeline.validate
+
 ### src.propact.cli.batch
 > Batch convert files in a directory.
 - **Calls**: cli.command, click.argument, click.option, click.option, click.option, UniConverter, list, console.print
@@ -202,16 +213,6 @@ Returns:
     Dictionary with audit results
 - **Calls**: self._protocol_pattern.findall, self._script_pattern.search, self._base64_pattern.findall, issues.append, self._html_tag_pattern.findall, len, len, bool
 
-### examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process
-> Process markdown content with security checks.
-
-Args:
-    markdown_content: Raw markdown content
-    source: Source identifier for logging
-    
-Return
-- **Calls**: None.isoformat, self.sanitizer.audit, self.sanitizer.sanitize, self.optimizer.optimize, MarkdownParser, self.logger.info, None.extend, self.pipeline.validate
-
 ### src.propact.validation.ValidationPipeline.validate
 > Validate markdown content.
 
@@ -220,6 +221,10 @@ Args:
     schema_name: Name of schema to validate against
     schema_version: V
 - **Calls**: None.hexdigest, ValidationResult, hashlib.sha256, self.sanitizer.audit, self.sanitizer.sanitize, self.parser.parse, result.warnings.append, self.schema_registry.get_schema
+
+### src.propact.enhanced.Propact._send_rest
+> Send content via REST API.
+- **Calls**: None.items, None.items, httpx.AsyncClient, method.upper, isinstance, None.items, dict, json.dumps
 
 ### src.propact.enhanced.Propact._response_to_md
 > Convert response to markdown format.
@@ -251,9 +256,14 @@ Returns:
 > Convert Markdown tables to XLSX.
 - **Calls**: openpyxl.Workbook, markdown_content.split, wb.save, ConversionResult, ConversionResult, str, all, enumerate
 
-### src.propact.enhanced.Propact._send_rest
-> Send content via REST API.
-- **Calls**: None.items, None.items, httpx.AsyncClient, isinstance, None.items, client.post, dict, json.dumps
+### src.propact.testing.ExampleHelper.run_example
+> Run a propact example with the given parameters.
+
+Args:
+    example_dir: Directory containing the example
+    endpoint: Endpoint to send data to
+    s
+- **Calls**: os.environ.copy, readme_path.exists, str, cmd.extend, cmd.extend, cmd.extend, cmd.extend, src.propact.config.get_config
 
 ### src.propact.uniconverter.UniConverter.from_markdown
 > Convert Markdown to any supported format.
@@ -272,18 +282,9 @@ Args:
 > Convert CSV to Markdown table.
 - **Calls**: pd.read_csv, ConversionResult, ConversionResult, StringIO, table_from_dataframe, table_md.to_markdown, self._create_md_table, ConversionResult
 
-### src.propact.enhanced.Propact._introspect_schema
-> Introspect schema from file (OpenAPI, CLI, etc.).
-- **Calls**: Path, schema_path.endswith, schema_file.exists, schema_path.endswith, schema_path.endswith, prance.ResolvingParser, schema_path.endswith, schema_path.endswith
-
-### src.propact.uniconverter.UniConverter.to_markdown
-> Convert any supported format to Markdown.
-
-Args:
-    input_path: Path to input file
-    input_format: Format of input file (auto-detected if None)
-   
-- **Calls**: Path, input_path.exists, ConversionResult, None.lstrip, ConversionResult, self._markitdown_to_md, self.logger.error, ConversionResult
+### src.propact.error_handler.PropactErrorHandler._fallback_search
+> Search for similar endpoints using keywords and Levenshtein.
+- **Calls**: self._extract_keywords, None.items, None.items, error.error_msg.lower, methods.items, method.upper, path.lower, None.lower
 
 ## Process Flows
 
@@ -309,14 +310,14 @@ _md_to_docx [src.propact.uniconverter.UniConverter]
 universal [src.propact.cli]
 ```
 
-### Flow 5: send_to_endpoint
-```
-send_to_endpoint [src.propact.enhanced.Propact]
-```
-
-### Flow 6: demo_security
+### Flow 5: demo_security
 ```
 demo_security [examples.05-security-hardening.secure_handler]
+```
+
+### Flow 6: send_to_endpoint
+```
+send_to_endpoint [src.propact.enhanced.Propact]
 ```
 
 ### Flow 7: smart_send
@@ -347,6 +348,11 @@ send [src.propact.adapters.EmailAdapter]
 - **Methods**: 16
 - **Key Methods**: src.propact.uniconverter.UniConverter.__init__, src.propact.uniconverter.UniConverter.to_markdown, src.propact.uniconverter.UniConverter.from_markdown, src.propact.uniconverter.UniConverter.send_email, src.propact.uniconverter.UniConverter._markitdown_to_md, src.propact.uniconverter.UniConverter._html_to_md, src.propact.uniconverter.UniConverter._email_to_md, src.propact.uniconverter.UniConverter._pandoc_to_md, src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html
 
+### src.propact.error_handler.PropactErrorHandler
+> Multi-layer error recovery system for Propact.
+- **Methods**: 15
+- **Key Methods**: src.propact.error_handler.PropactErrorHandler.__init__, src.propact.error_handler.PropactErrorHandler.handle_match_failure, src.propact.error_handler.PropactErrorHandler._llm_self_correct, src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama, src.propact.error_handler.PropactErrorHandler._fallback_search, src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm, src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._retry_with_backoff
+
 ### src.propact.enhanced.Propact
 > Enhanced Propact class with schema introspection and intelligent content splitting.
 
@@ -354,11 +360,6 @@ Capable of pars
 - **Methods**: 15
 - **Key Methods**: src.propact.enhanced.Propact.__init__, src.propact.enhanced.Propact._introspect_schema, src.propact.enhanced.Propact._smart_split_md, src.propact.enhanced.Propact._detect_schema_type, src.propact.enhanced.Propact._adapt_to_openapi, src.propact.enhanced.Propact._adapt_to_shell, src.propact.enhanced.Propact._adapt_to_mcp, src.propact.enhanced.Propact._get_mime_type, src.propact.enhanced.Propact.send_to_endpoint, src.propact.enhanced.Propact._send_rest
 - **Inherits**: ToonPact
-
-### src.propact.error_handler.PropactErrorHandler
-> Multi-layer error recovery system for Propact.
-- **Methods**: 15
-- **Key Methods**: src.propact.error_handler.PropactErrorHandler.__init__, src.propact.error_handler.PropactErrorHandler.handle_match_failure, src.propact.error_handler.PropactErrorHandler._llm_self_correct, src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama, src.propact.error_handler.PropactErrorHandler._fallback_search, src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm, src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._retry_with_backoff
 
 ### src.propact.converter.MDConverter
 > Universal converter for markdown ↔ various formats.
@@ -387,15 +388,15 @@ Handles markdown documents with protocol blocks f
 - **Methods**: 8
 - **Key Methods**: src.propact.core.ToonPact.__init__, src.propact.core.ToonPact.smart_send, src.propact.core.ToonPact.load, src.propact.core.ToonPact.execute, src.propact.core.ToonPact._execute_shell, src.propact.core.ToonPact._execute_mcp, src.propact.core.ToonPact._execute_rest, src.propact.core.ToonPact._execute_ws
 
-### src.propact.attachments.AttachmentHandler
-> Handles binary attachments in Protocol Pact documents.
-- **Methods**: 7
-- **Key Methods**: src.propact.attachments.AttachmentHandler.__init__, src.propact.attachments.AttachmentHandler.load_attachment, src.propact.attachments.AttachmentHandler.save_attachment, src.propact.attachments.AttachmentHandler.encode_base64, src.propact.attachments.AttachmentHandler.decode_base64, src.propact.attachments.AttachmentHandler.get_mime_type, src.propact.attachments.AttachmentHandler.extract_from_markdown
-
 ### src.propact.llm_proxy.LiteLLMProxy
 > Unified interface for 100+ LLM providers via LiteLLM.
 - **Methods**: 7
 - **Key Methods**: src.propact.llm_proxy.LiteLLMProxy.__init__, src.propact.llm_proxy.LiteLLMProxy._load_config, src.propact.llm_proxy.LiteLLMProxy.generate, src.propact.llm_proxy.LiteLLMProxy.astream, src.propact.llm_proxy.LiteLLMProxy.generate_sync, src.propact.llm_proxy.LiteLLMProxy.list_providers, src.propact.llm_proxy.LiteLLMProxy.from_env
+
+### src.propact.attachments.AttachmentHandler
+> Handles binary attachments in Protocol Pact documents.
+- **Methods**: 7
+- **Key Methods**: src.propact.attachments.AttachmentHandler.__init__, src.propact.attachments.AttachmentHandler.load_attachment, src.propact.attachments.AttachmentHandler.save_attachment, src.propact.attachments.AttachmentHandler.encode_base64, src.propact.attachments.AttachmentHandler.decode_base64, src.propact.attachments.AttachmentHandler.get_mime_type, src.propact.attachments.AttachmentHandler.extract_from_markdown
 
 ### src.propact.protocols.mcp.MCPProtocol
 > Handles MCP (Model Context Protocol) communication within Protocol Pact.
@@ -406,6 +407,12 @@ Handles markdown documents with protocol blocks f
 > Handles WebSocket communication within Protocol Pact.
 - **Methods**: 7
 - **Key Methods**: src.propact.protocols.ws.WebSocketProtocol.__init__, src.propact.protocols.ws.WebSocketProtocol.connect, src.propact.protocols.ws.WebSocketProtocol.disconnect, src.propact.protocols.ws.WebSocketProtocol.send, src.propact.protocols.ws.WebSocketProtocol.receive, src.propact.protocols.ws.WebSocketProtocol.add_message_handler, src.propact.protocols.ws.WebSocketProtocol.remove_message_handler
+
+### src.propact.dsl_converter.GraphQLConverter
+> Converter for GraphQL ↔ Markdown.
+- **Methods**: 6
+- **Key Methods**: src.propact.dsl_converter.GraphQLConverter.to_markdown, src.propact.dsl_converter.GraphQLConverter.from_markdown, src.propact.dsl_converter.GraphQLConverter._extract_structured_data, src.propact.dsl_converter.GraphQLConverter._generate_github_query, src.propact.dsl_converter.GraphQLConverter._generate_stripe_query, src.propact.dsl_converter.GraphQLConverter._generate_generic_query
+- **Inherits**: BaseConverter
 
 ### src.propact.matcher.EndpointMatcher
 > Matches markdown content to OpenAPI endpoints using semantic similarity.
@@ -419,11 +426,15 @@ Uses LiteLLM for multi-provider su
 - **Methods**: 6
 - **Key Methods**: src.propact.matcher.OpenAPILLMMatcher.__init__, src.propact.matcher.OpenAPILLMMatcher._llm_select, src.propact.matcher.OpenAPILLMMatcher.match, src.propact.matcher.OpenAPILLMMatcher._extract_intent, src.propact.matcher.OpenAPILLMMatcher._extract_candidates, src.propact.matcher.OpenAPILLMMatcher.hybrid_match
 
-### src.propact.dsl_converter.GraphQLConverter
-> Converter for GraphQL ↔ Markdown.
+### src.propact.validation.ValidationPipeline
+> Pipeline for validating markdown content.
 - **Methods**: 6
-- **Key Methods**: src.propact.dsl_converter.GraphQLConverter.to_markdown, src.propact.dsl_converter.GraphQLConverter.from_markdown, src.propact.dsl_converter.GraphQLConverter._extract_structured_data, src.propact.dsl_converter.GraphQLConverter._generate_github_query, src.propact.dsl_converter.GraphQLConverter._generate_stripe_query, src.propact.dsl_converter.GraphQLConverter._generate_generic_query
-- **Inherits**: BaseConverter
+- **Key Methods**: src.propact.validation.ValidationPipeline.__init__, src.propact.validation.ValidationPipeline.validate, src.propact.validation.ValidationPipeline._validate_against_schema, src.propact.validation.ValidationPipeline._validate_types, src.propact.validation.ValidationPipeline.create_schema_pin, src.propact.validation.ValidationPipeline.detect_schema_drift
+
+### src.propact.testing.ExampleHelper
+> Helper class for creating and managing example files.
+- **Methods**: 6
+- **Key Methods**: src.propact.testing.ExampleHelper.create_sample_file, src.propact.testing.ExampleHelper.cleanup_files, src.propact.testing.ExampleHelper.check_dependencies, src.propact.testing.ExampleHelper.check_env_var, src.propact.testing.ExampleHelper.print_status, src.propact.testing.ExampleHelper.run_example
 
 ### src.propact.query_gen.QueryGenerator
 > Generate Propact MD templates from natural language queries using LLM.
@@ -435,26 +446,25 @@ Uses LiteLLM for multi-provider su
 - **Methods**: 6
 - **Key Methods**: src.propact.protocols.rest.RESTProtocol.__init__, src.propact.protocols.rest.RESTProtocol.execute, src.propact.protocols.rest.RESTProtocol.get, src.propact.protocols.rest.RESTProtocol.post, src.propact.protocols.rest.RESTProtocol.put, src.propact.protocols.rest.RESTProtocol.delete
 
-### src.propact.validation.ValidationPipeline
-> Pipeline for validating markdown content.
-- **Methods**: 6
-- **Key Methods**: src.propact.validation.ValidationPipeline.__init__, src.propact.validation.ValidationPipeline.validate, src.propact.validation.ValidationPipeline._validate_against_schema, src.propact.validation.ValidationPipeline._validate_types, src.propact.validation.ValidationPipeline.create_schema_pin, src.propact.validation.ValidationPipeline.detect_schema_drift
-
 ### src.propact.dsl_converter.BaseConverter
 > Base class for format converters.
 - **Methods**: 5
 - **Key Methods**: src.propact.dsl_converter.BaseConverter.__init__, src.propact.dsl_converter.BaseConverter.to_markdown, src.propact.dsl_converter.BaseConverter.from_markdown, src.propact.dsl_converter.BaseConverter._parse_md_table, src.propact.dsl_converter.BaseConverter._create_md_table
 - **Inherits**: ABC
 
-### src.propact.dsl_converter.YAMLConverter
-> Converter for YAML ↔ Markdown.
-- **Methods**: 5
-- **Key Methods**: src.propact.dsl_converter.YAMLConverter.to_markdown, src.propact.dsl_converter.YAMLConverter.from_markdown, src.propact.dsl_converter.YAMLConverter._dict_to_markdown, src.propact.dsl_converter.YAMLConverter._list_to_markdown, src.propact.dsl_converter.YAMLConverter._markdown_to_dict
-- **Inherits**: BaseConverter
-
 ## Data Transformation Functions
 
 Key functions that process and transform data:
+
+### examples.run-all.validate_example
+
+### examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process
+> Process markdown content with security checks.
+
+Args:
+    markdown_content: Raw markdown content
+   
+- **Output to**: None.isoformat, self.sanitizer.audit, self.sanitizer.sanitize, self.optimizer.optimize, MarkdownParser
 
 ### src.propact.cli.convert
 > Convert between different formats (SQL, GraphQL, YAML, CSV, XML).
@@ -491,31 +501,6 @@ Args:
     content: The markdown document conten
 - **Output to**: self.protocol_pattern.finditer, match.group, match.group, ProtocolType, self._extract_attachments
 
-### src.propact.uniconverter.UniConverter.get_supported_formats
-> Get all supported formats.
-
-Returns:
-    Dict with 'to_markdown' and 'from_markdown' keys
-- **Output to**: list, list, self.TO_MARKDOWN.keys, self.FROM_MARKDOWN.keys
-
-### src.propact.attachments.AttachmentHandler.encode_base64
-> Encode binary data as base64 string.
-- **Output to**: None.decode, base64.b64encode
-
-### src.propact.attachments.AttachmentHandler.decode_base64
-> Decode base64 string to binary data.
-- **Output to**: base64.b64decode, encoded.encode
-
-### examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process
-> Process markdown content with security checks.
-
-Args:
-    markdown_content: Raw markdown content
-   
-- **Output to**: None.isoformat, self.sanitizer.audit, self.sanitizer.sanitize, self.optimizer.optimize, MarkdownParser
-
-### examples.run-all.validate_example
-
 ### src.propact.validation.ValidationPipeline.validate
 > Validate markdown content.
 
@@ -542,6 +527,21 @@ Returns:
  
 - **Output to**: ProtocolBlockModel, errors.append
 
+### src.propact.uniconverter.UniConverter.get_supported_formats
+> Get all supported formats.
+
+Returns:
+    Dict with 'to_markdown' and 'from_markdown' keys
+- **Output to**: list, list, self.TO_MARKDOWN.keys, self.FROM_MARKDOWN.keys
+
+### src.propact.attachments.AttachmentHandler.encode_base64
+> Encode binary data as base64 string.
+- **Output to**: None.decode, base64.b64encode
+
+### src.propact.attachments.AttachmentHandler.decode_base64
+> Decode base64 string to binary data.
+- **Output to**: base64.b64decode, encoded.encode
+
 ## Behavioral Patterns
 
 ### state_machine_WebSocketProtocol
@@ -553,10 +553,10 @@ Returns:
 
 Functions exposed as public API (no underscore prefix):
 
-- `src.propact.cli.main` - 91 calls
+- `src.propact.cli.main` - 93 calls
 - `src.propact.cli.universal` - 41 calls
-- `src.propact.enhanced.Propact.send_to_endpoint` - 39 calls
 - `examples.05-security-hardening.secure_handler.demo_security` - 39 calls
+- `src.propact.enhanced.Propact.send_to_endpoint` - 33 calls
 - `src.propact.core.ToonPact.smart_send` - 32 calls
 - `src.propact.dsl_converter.SQLConverter.from_markdown` - 31 calls
 - `src.propact.cli.file` - 30 calls
@@ -564,35 +564,35 @@ Functions exposed as public API (no underscore prefix):
 - `src.propact.cli.send_email` - 24 calls
 - `src.propact.uniconverter.UniConverter.send_email` - 24 calls
 - `src.propact.cli.string` - 22 calls
+- `examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process` - 21 calls
 - `src.propact.cli.batch` - 21 calls
 - `src.propact.security.MDSanitizer.audit` - 21 calls
-- `examples.05-security-hardening.secure_handler.SecureMarkdownHandler.process` - 21 calls
 - `src.propact.validation.ValidationPipeline.validate` - 21 calls
 - `src.propact.converter.MDConverter.extract_from_markdown` - 19 calls
 - `src.propact.dsl_converter.SQLConverter.to_markdown` - 18 calls
 - `src.propact.adapters.MQTTAdapter.send` - 17 calls
+- `src.propact.testing.ExampleHelper.run_example` - 15 calls
 - `src.propact.uniconverter.UniConverter.from_markdown` - 15 calls
 - `src.propact.dsl_converter.CSVConverter.to_markdown` - 14 calls
 - `src.propact.uniconverter.UniConverter.to_markdown` - 14 calls
 - `src.propact.dsl_converter.DSLConverter.convert` - 13 calls
 - `src.propact.validation.ValidationPipeline.detect_schema_drift` - 13 calls
+- `src.propact.testing.ExampleHelper.create_sample_file` - 13 calls
 - `src.propact.converter.MDConverter.prepare_payload` - 12 calls
 - `src.propact.importer.OpenAPILLMImporter.import_browser_spec` - 11 calls
+- `src.propact.dsl_converter.CSVConverter.from_markdown` - 11 calls
 - `src.propact.adapters.GraphQLAdapter.send` - 11 calls
 - `src.propact.adapters.SOAPAdapter.send` - 11 calls
-- `src.propact.dsl_converter.CSVConverter.from_markdown` - 11 calls
 - `src.propact.error_handler.PropactErrorHandler.handle_match_failure` - 11 calls
 - `src.propact.cli.list_blocks` - 10 calls
 - `src.propact.cli.display_results` - 10 calls
 - `src.propact.cli.formats` - 10 calls
 - `src.propact.matcher.EndpointMatcher.extract_intent` - 10 calls
-- `src.propact.matcher.EndpointMatcher.extract_endpoints` - 9 calls
-- `src.propact.matcher.EndpointMatcher.match` - 9 calls
 - `src.propact.dsl_converter.YAMLConverter.to_markdown` - 9 calls
 - `src.propact.dsl_converter.XMLConverter.from_markdown` - 9 calls
+- `src.propact.matcher.EndpointMatcher.extract_endpoints` - 9 calls
+- `src.propact.matcher.EndpointMatcher.match` - 9 calls
 - `src.propact.parser.MarkdownParser.parse` - 9 calls
-- `src.propact.core.ToonPact.execute` - 9 calls
-- `src.propact.llm_proxy.self_correct` - 9 calls
 
 ## System Interactions
 
@@ -615,14 +615,14 @@ graph TD
     universal --> command
     universal --> argument
     universal --> option
+    demo_security --> print
+    demo_security --> SecureMarkdownHandle
+    demo_security --> read_text
     send_to_endpoint --> _smart_split_md
     send_to_endpoint --> prepare_payload
     send_to_endpoint --> startswith
     send_to_endpoint --> with_suffix
     send_to_endpoint --> write_text
-    demo_security --> print
-    demo_security --> SecureMarkdownHandle
-    demo_security --> read_text
     smart_send --> Console
     smart_send --> read_text
     smart_send --> PropactErrorHandler

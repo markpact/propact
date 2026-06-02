@@ -39,6 +39,7 @@ semantic = ["sentence-transformers", "numpy"]
 security = ["bleach", "jsonschema", "Pillow", "markdown-it-py"]
 dsl = ["sqlglot", "pandas", "PyYAML", "xmltodict", "markdown-table-generator"]
 llm = ["litellm"]
+webpatch = ["repatch[web]>=0.2.14"]
 uniconverter = ["markitdown", "weasyprint", "python-docx", "python-pptx", "openpyxl", "pypandoc", "html2text", "email-validator"]
 all = ["grpcio", "grpcio-tools", "gql", "paho-mqtt", "zeep", "pypandoc", "python-dotenv", "mcp-python-sdk", "sentence-transformers", "numpy", "bleach", "jsonschema", "Pillow", "markdown-it-py", "sqlglot", "pandas", "PyYAML", "xmltodict", "markdown-table-generator", "markitdown", "weasyprint", "python-docx", "python-pptx", "openpyxl", "html2text", "email-validator"]
 
@@ -85,7 +86,6 @@ ignore = ["B008"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
-asyncio_mode = "auto"
 
 [tool.mypy]
 python_version = "3.10"
@@ -101,3 +101,32 @@ warn_unused_ignores = true
 warn_no_return = true
 warn_unreachable = true
 strict_equality = true
+
+[tool.pfix]
+# Self-healing Python configuration
+model = "openrouter/qwen/qwen3-coder-next"
+auto_apply = true
+auto_install_deps = true
+auto_restart = false
+max_retries = 3
+create_backups = false
+git_auto_commit = false
+
+[tool.pfix.runtime_todo]
+enabled = true
+todo_file = "TODO.md"
+min_severity = "low"
+deduplicate = true
+
+[tool.costs]
+# AI Cost tracking configuration
+badge = true
+update_readme = true
+readme_path = "README.md"
+default_model = "openrouter/qwen/qwen3-coder-next"
+analysis_mode = "byok"
+full_history = true
+max_commits = 500
+
+# Cost thresholds for badge colors (USD)
+badge_color_thresholds = { low = 1.0, medium = 5.0, high = 10.0, critical = 50.0 }

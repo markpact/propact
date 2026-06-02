@@ -1,0 +1,1588 @@
+source: code2llm
+# generated in 0.11s
+schema: code2llm.planfile_tickets.v1
+project_root: /home/tom/github/pactown-com/propact
+tickets:
+- signal: code2llm_god
+  title: 'Split god module: src/propact/dsl_converter.py'
+  description: 'code2llm reports `src/propact/dsl_converter.py` as a large module
+    (811 lines, 8 classes).
+
+
+    Split it by responsibility, keep public imports stable, and add focused tests
+    around the moved behavior.'
+  priority: high
+  labels:
+  - llm-ready
+  - code2llm
+  - god-module
+  - refactor
+  files:
+  - src/propact/dsl_converter.py
+  dedupe_key: code2llm:god:src/propact/dsl_converter.py
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: main'
+  description: 'code2llm reports `God Function: main` in `src/propact/cli.py:129`.
+
+
+    Function ''main'' is oversized: CC=2, fan-out=34, mutations=13.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: high
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/cli.py:129:God Function: main'
+- signal: code2llm_smell_shotgun_surgery
+  title: 'Address code smell: Shotgun Surgery: config'
+  description: 'code2llm reports `Shotgun Surgery: config` in `src/propact/security.py:244`.
+
+
+    Mutation of variable ''config'' spans 5 functions. Changing this logic requires
+    work in many places.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: high
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - shotgun-surgery
+  files:
+  - src/propact/security.py
+  dedupe_key: 'code2llm:smell:shotgun_surgery:src/propact/security.py:244:Shotgun
+    Surgery: config'
+- signal: code2llm_smell_shotgun_surgery
+  title: 'Address code smell: Shotgun Surgery: md_content'
+  description: 'code2llm reports `Shotgun Surgery: md_content` in `src/propact/cli.py:512`.
+
+
+    Mutation of variable ''md_content'' spans 5 functions. Changing this logic requires
+    work in many places.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: high
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - shotgun-surgery
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:shotgun_surgery:src/propact/cli.py:512:Shotgun Surgery:
+    md_content'
+- signal: code2llm_smell_shotgun_surgery
+  title: 'Address code smell: Shotgun Surgery: result'
+  description: 'code2llm reports `Shotgun Surgery: result` in `src/propact/cli.py:440`.
+
+
+    Mutation of variable ''result'' spans 15 functions. Changing this logic requires
+    work in many places.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: high
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - shotgun-surgery
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:shotgun_surgery:src/propact/cli.py:440:Shotgun Surgery:
+    result'
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.adapters.EmailAdapter.send (CC=16)'
+  description: 'code2llm reports `src.propact.adapters.EmailAdapter.send` at `src/propact/adapters.py:282`
+    with cyclomatic complexity 16 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/adapters.py
+  dedupe_key: code2llm:cc:src/propact/adapters.py:src.propact.adapters.EmailAdapter.send
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.cli.file (CC=15)'
+  description: 'code2llm reports `src.propact.cli.file` at `src/propact/cli.py:374`
+    with cyclomatic complexity 15 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/cli.py
+  dedupe_key: code2llm:cc:src/propact/cli.py:src.propact.cli.file
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.cli.universal (CC=17)'
+  description: 'code2llm reports `src.propact.cli.universal` at `src/propact/cli.py:512`
+    with cyclomatic complexity 17 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/cli.py
+  dedupe_key: code2llm:cc:src/propact/cli.py:src.propact.cli.universal
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.dsl_converter.BaseConverter._create_md_table
+    (CC=15)'
+  description: 'code2llm reports `src.propact.dsl_converter.BaseConverter._create_md_table`
+    at `src/propact/dsl_converter.py:106` with cyclomatic complexity 15 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/dsl_converter.py
+  dedupe_key: code2llm:cc:src/propact/dsl_converter.py:src.propact.dsl_converter.BaseConverter._create_md_table
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.dsl_converter.BaseConverter._parse_md_table
+    (CC=15)'
+  description: 'code2llm reports `src.propact.dsl_converter.BaseConverter._parse_md_table`
+    at `src/propact/dsl_converter.py:78` with cyclomatic complexity 15 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/dsl_converter.py
+  dedupe_key: code2llm:cc:src/propact/dsl_converter.py:src.propact.dsl_converter.BaseConverter._parse_md_table
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.dsl_converter.SQLConverter.from_markdown
+    (CC=18)'
+  description: 'code2llm reports `src.propact.dsl_converter.SQLConverter.from_markdown`
+    at `src/propact/dsl_converter.py:211` with cyclomatic complexity 18 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/dsl_converter.py
+  dedupe_key: code2llm:cc:src/propact/dsl_converter.py:src.propact.dsl_converter.SQLConverter.from_markdown
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.enhanced.Propact._send_rest (CC=17)'
+  description: 'code2llm reports `src.propact.enhanced.Propact._send_rest` at `src/propact/enhanced.py:261`
+    with cyclomatic complexity 17 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: code2llm:cc:src/propact/enhanced.py:src.propact.enhanced.Propact._send_rest
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.enhanced.Propact.send_to_endpoint
+    (CC=18)'
+  description: 'code2llm reports `src.propact.enhanced.Propact.send_to_endpoint` at
+    `src/propact/enhanced.py:171` with cyclomatic complexity 18 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: code2llm:cc:src/propact/enhanced.py:src.propact.enhanced.Propact.send_to_endpoint
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.uniconverter.UniConverter._md_to_docx
+    (CC=23)'
+  description: 'code2llm reports `src.propact.uniconverter.UniConverter._md_to_docx`
+    at `src/propact/uniconverter.py:537` with cyclomatic complexity 23 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: code2llm:cc:src/propact/uniconverter.py:src.propact.uniconverter.UniConverter._md_to_docx
+- signal: code2llm_cc
+  title: 'Reduce cyclomatic complexity: src.propact.validation.ValidationPipeline.validate
+    (CC=16)'
+  description: 'code2llm reports `src.propact.validation.ValidationPipeline.validate`
+    at `src/propact/validation.py:201` with cyclomatic complexity 16 (limit 15).
+
+
+    Extract smaller functions, flatten conditionals, or split strategy branches. Re-run
+    code2llm after the change and keep tests green.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - complexity
+  - refactor
+  files:
+  - src/propact/validation.py
+  dedupe_key: code2llm:cc:src/propact/validation.py:src.propact.validation.ValidationPipeline.validate
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: content, schema, self'
+  description: 'code2llm reports `Data Clump: content, schema, self` in `src/propact/enhanced.py:103`.
+
+
+    Arguments (content, schema, self) are used together in multiple functions: src.propact.enhanced.Propact._smart_split_md,
+    src.propact.enhanced.Propact._adapt_to_openapi, src.propact.enhanced.Propact._adapt_to_shell,
+    src.propact.enhanced.Propact._adapt_to_mcp.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/enhanced.py:103:Data Clump: content,
+    schema, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: content, schema, self'
+  description: 'code2llm reports `Data Clump: content, schema, self` in `src/propact/enhanced.py:133`.
+
+
+    Arguments (content, schema, self) are used together in multiple functions: src.propact.enhanced.Propact._smart_split_md,
+    src.propact.enhanced.Propact._adapt_to_openapi, src.propact.enhanced.Propact._adapt_to_shell,
+    src.propact.enhanced.Propact._adapt_to_mcp.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/enhanced.py:133:Data Clump: content,
+    schema, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: content, schema, self'
+  description: 'code2llm reports `Data Clump: content, schema, self` in `src/propact/enhanced.py:152`.
+
+
+    Arguments (content, schema, self) are used together in multiple functions: src.propact.enhanced.Propact._smart_split_md,
+    src.propact.enhanced.Propact._adapt_to_openapi, src.propact.enhanced.Propact._adapt_to_shell,
+    src.propact.enhanced.Propact._adapt_to_mcp.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/enhanced.py:152:Data Clump: content,
+    schema, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: content, schema, self'
+  description: 'code2llm reports `Data Clump: content, schema, self` in `src/propact/enhanced.py:159`.
+
+
+    Arguments (content, schema, self) are used together in multiple functions: src.propact.enhanced.Propact._smart_split_md,
+    src.propact.enhanced.Propact._adapt_to_openapi, src.propact.enhanced.Propact._adapt_to_shell,
+    src.propact.enhanced.Propact._adapt_to_mcp.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/enhanced.py:159:Data Clump: content,
+    schema, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: custom_config, provider, self'
+  description: 'code2llm reports `Data Clump: custom_config, provider, self` in `src/propact/llm_proxy.py:56`.
+
+
+    Arguments (custom_config, provider, self) are used together in multiple functions:
+    src.propact.llm_proxy.LiteLLMProxy.__init__, src.propact.llm_proxy.LiteLLMProxy._load_config.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/llm_proxy.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/llm_proxy.py:56:Data Clump: custom_config,
+    provider, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: custom_config, provider, self'
+  description: 'code2llm reports `Data Clump: custom_config, provider, self` in `src/propact/llm_proxy.py:71`.
+
+
+    Arguments (custom_config, provider, self) are used together in multiple functions:
+    src.propact.llm_proxy.LiteLLMProxy.__init__, src.propact.llm_proxy.LiteLLMProxy._load_config.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/llm_proxy.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/llm_proxy.py:71:Data Clump: custom_config,
+    provider, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: default, key, self'
+  description: 'code2llm reports `Data Clump: default, key, self` in `src/propact/config.py:168`.
+
+
+    Arguments (default, key, self) are used together in multiple functions: src.propact.config.ConfigManager._get_env_bool,
+    src.propact.config.ConfigManager._get_env_int, src.propact.config.ConfigManager._get_env_path.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/config.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/config.py:168:Data Clump: default,
+    key, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: default, key, self'
+  description: 'code2llm reports `Data Clump: default, key, self` in `src/propact/config.py:173`.
+
+
+    Arguments (default, key, self) are used together in multiple functions: src.propact.config.ConfigManager._get_env_bool,
+    src.propact.config.ConfigManager._get_env_int, src.propact.config.ConfigManager._get_env_path.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/config.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/config.py:173:Data Clump: default,
+    key, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: default, key, self'
+  description: 'code2llm reports `Data Clump: default, key, self` in `src/propact/config.py:180`.
+
+
+    Arguments (default, key, self) are used together in multiple functions: src.propact.config.ConfigManager._get_env_bool,
+    src.propact.config.ConfigManager._get_env_int, src.propact.config.ConfigManager._get_env_path.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/config.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/config.py:180:Data Clump: default,
+    key, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: endpoint, payload, self'
+  description: 'code2llm reports `Data Clump: endpoint, payload, self` in `src/propact/enhanced.py:314`.
+
+
+    Arguments (endpoint, payload, self) are used together in multiple functions: src.propact.enhanced.Propact._send_mcp,
+    src.propact.enhanced.Propact._send_ws.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/enhanced.py:314:Data Clump: endpoint,
+    payload, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: endpoint, payload, self'
+  description: 'code2llm reports `Data Clump: endpoint, payload, self` in `src/propact/enhanced.py:328`.
+
+
+    Arguments (endpoint, payload, self) are used together in multiple functions: src.propact.enhanced.Propact._send_mcp,
+    src.propact.enhanced.Propact._send_ws.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/enhanced.py:328:Data Clump: endpoint,
+    payload, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:98`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:98:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:111`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:111:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:139`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:139:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:209`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:209:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:222`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:222:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:246`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:246:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, md_content, self'
+  description: 'code2llm reports `Data Clump: error, md_content, self` in `src/propact/error_handler.py:294`.
+
+
+    Arguments (error, md_content, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._llm_self_correct,
+    src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm, src.propact.error_handler.PropactErrorHandler._llm_self_correct_ollama,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error, src.propact.error_handler.PropactErrorHandler._fix_client_error_litellm,
+    src.propact.error_handler.PropactErrorHandler._fix_client_error_ollama, src.propact.error_handler.PropactErrorHandler._simplify_and_retry.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:294:Data Clump:
+    error, md_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, spec, self'
+  description: 'code2llm reports `Data Clump: error, spec, self` in `src/propact/error_handler.py:173`.
+
+
+    Arguments (error, spec, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._fallback_search,
+    src.propact.error_handler.PropactErrorHandler._generic_fallback.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:173:Data Clump:
+    error, spec, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: error, spec, self'
+  description: 'code2llm reports `Data Clump: error, spec, self` in `src/propact/error_handler.py:303`.
+
+
+    Arguments (error, spec, self) are used together in multiple functions: src.propact.error_handler.PropactErrorHandler._fallback_search,
+    src.propact.error_handler.PropactErrorHandler._generic_fallback.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/error_handler.py:303:Data Clump:
+    error, spec, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: headers, body, url, self'
+  description: 'code2llm reports `Data Clump: headers, body, url, self` in `src/propact/protocols/rest.py:98`.
+
+
+    Arguments (headers, body, url, self) are used together in multiple functions:
+    src.propact.protocols.rest.RESTProtocol.post, src.propact.protocols.rest.RESTProtocol.put.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/protocols/rest.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/protocols/rest.py:98:Data Clump:
+    headers, body, url, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: headers, body, url, self'
+  description: 'code2llm reports `Data Clump: headers, body, url, self` in `src/propact/protocols/rest.py:109`.
+
+
+    Arguments (headers, body, url, self) are used together in multiple functions:
+    src.propact.protocols.rest.RESTProtocol.post, src.propact.protocols.rest.RESTProtocol.put.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/protocols/rest.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/protocols/rest.py:109:Data Clump:
+    headers, body, url, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: headers, url, self'
+  description: 'code2llm reports `Data Clump: headers, url, self` in `src/propact/protocols/ws.py:29`.
+
+
+    Arguments (headers, url, self) are used together in multiple functions: src.propact.protocols.ws.WebSocketProtocol.__init__,
+    src.propact.protocols.rest.RESTProtocol.delete.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/protocols/ws.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/protocols/ws.py:29:Data Clump:
+    headers, url, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: headers, url, self'
+  description: 'code2llm reports `Data Clump: headers, url, self` in `src/propact/protocols/rest.py:120`.
+
+
+    Arguments (headers, url, self) are used together in multiple functions: src.propact.protocols.ws.WebSocketProtocol.__init__,
+    src.propact.protocols.rest.RESTProtocol.delete.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/protocols/rest.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/protocols/rest.py:120:Data Clump:
+    headers, url, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: input_format, input_path, self'
+  description: 'code2llm reports `Data Clump: input_format, input_path, self` in `src/propact/uniconverter.py:155`.
+
+
+    Arguments (input_format, input_path, self) are used together in multiple functions:
+    src.propact.uniconverter.UniConverter.to_markdown, src.propact.uniconverter.UniConverter._pandoc_to_md.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:155:Data Clump:
+    input_format, input_path, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: input_format, input_path, self'
+  description: 'code2llm reports `Data Clump: input_format, input_path, self` in `src/propact/uniconverter.py:432`.
+
+
+    Arguments (input_format, input_path, self) are used together in multiple functions:
+    src.propact.uniconverter.UniConverter.to_markdown, src.propact.uniconverter.UniConverter._pandoc_to_md.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:432:Data Clump:
+    input_format, input_path, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: mode, schema, endpoint, port, example_dir'
+  description: 'code2llm reports `Data Clump: mode, schema, endpoint, port, example_dir`
+    in `src/propact/testing.py:112`.
+
+
+    Arguments (mode, schema, endpoint, port, example_dir) are used together in multiple
+    functions: src.propact.testing.ExampleHelper.run_example, src.propact.testing.run_example.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/testing.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/testing.py:112:Data Clump: mode,
+    schema, endpoint, port, example_dir'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: mode, schema, endpoint, port, example_dir'
+  description: 'code2llm reports `Data Clump: mode, schema, endpoint, port, example_dir`
+    in `src/propact/testing.py:184`.
+
+
+    Arguments (mode, schema, endpoint, port, example_dir) are used together in multiple
+    functions: src.propact.testing.ExampleHelper.run_example, src.propact.testing.run_example.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/testing.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/testing.py:184:Data Clump: mode,
+    schema, endpoint, port, example_dir'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, markdown_content, self'
+  description: 'code2llm reports `Data Clump: output_path, markdown_content, self`
+    in `src/propact/uniconverter.py:458`.
+
+
+    Arguments (output_path, markdown_content, self) are used together in multiple
+    functions: src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html,
+    src.propact.uniconverter.UniConverter._md_to_docx, src.propact.uniconverter.UniConverter._md_to_pptx,
+    src.propact.uniconverter.UniConverter._md_to_xlsx, src.propact.uniconverter.UniConverter._md_to_email.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:458:Data Clump:
+    output_path, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, markdown_content, self'
+  description: 'code2llm reports `Data Clump: output_path, markdown_content, self`
+    in `src/propact/uniconverter.py:498`.
+
+
+    Arguments (output_path, markdown_content, self) are used together in multiple
+    functions: src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html,
+    src.propact.uniconverter.UniConverter._md_to_docx, src.propact.uniconverter.UniConverter._md_to_pptx,
+    src.propact.uniconverter.UniConverter._md_to_xlsx, src.propact.uniconverter.UniConverter._md_to_email.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:498:Data Clump:
+    output_path, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, markdown_content, self'
+  description: 'code2llm reports `Data Clump: output_path, markdown_content, self`
+    in `src/propact/uniconverter.py:537`.
+
+
+    Arguments (output_path, markdown_content, self) are used together in multiple
+    functions: src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html,
+    src.propact.uniconverter.UniConverter._md_to_docx, src.propact.uniconverter.UniConverter._md_to_pptx,
+    src.propact.uniconverter.UniConverter._md_to_xlsx, src.propact.uniconverter.UniConverter._md_to_email.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:537:Data Clump:
+    output_path, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, markdown_content, self'
+  description: 'code2llm reports `Data Clump: output_path, markdown_content, self`
+    in `src/propact/uniconverter.py:603`.
+
+
+    Arguments (output_path, markdown_content, self) are used together in multiple
+    functions: src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html,
+    src.propact.uniconverter.UniConverter._md_to_docx, src.propact.uniconverter.UniConverter._md_to_pptx,
+    src.propact.uniconverter.UniConverter._md_to_xlsx, src.propact.uniconverter.UniConverter._md_to_email.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:603:Data Clump:
+    output_path, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, markdown_content, self'
+  description: 'code2llm reports `Data Clump: output_path, markdown_content, self`
+    in `src/propact/uniconverter.py:652`.
+
+
+    Arguments (output_path, markdown_content, self) are used together in multiple
+    functions: src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html,
+    src.propact.uniconverter.UniConverter._md_to_docx, src.propact.uniconverter.UniConverter._md_to_pptx,
+    src.propact.uniconverter.UniConverter._md_to_xlsx, src.propact.uniconverter.UniConverter._md_to_email.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:652:Data Clump:
+    output_path, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, markdown_content, self'
+  description: 'code2llm reports `Data Clump: output_path, markdown_content, self`
+    in `src/propact/uniconverter.py:689`.
+
+
+    Arguments (output_path, markdown_content, self) are used together in multiple
+    functions: src.propact.uniconverter.UniConverter._md_to_pdf, src.propact.uniconverter.UniConverter._md_to_html,
+    src.propact.uniconverter.UniConverter._md_to_docx, src.propact.uniconverter.UniConverter._md_to_pptx,
+    src.propact.uniconverter.UniConverter._md_to_xlsx, src.propact.uniconverter.UniConverter._md_to_email.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:689:Data Clump:
+    output_path, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, output_format, markdown_content,
+    self'
+  description: 'code2llm reports `Data Clump: output_path, output_format, markdown_content,
+    self` in `src/propact/uniconverter.py:208`.
+
+
+    Arguments (output_path, output_format, markdown_content, self) are used together
+    in multiple functions: src.propact.uniconverter.UniConverter.from_markdown, src.propact.uniconverter.UniConverter._pandoc_from_md.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:208:Data Clump:
+    output_path, output_format, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: output_path, output_format, markdown_content,
+    self'
+  description: 'code2llm reports `Data Clump: output_path, output_format, markdown_content,
+    self` in `src/propact/uniconverter.py:718`.
+
+
+    Arguments (output_path, output_format, markdown_content, self) are used together
+    in multiple functions: src.propact.uniconverter.UniConverter.from_markdown, src.propact.uniconverter.UniConverter._pandoc_from_md.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/uniconverter.py:718:Data Clump:
+    output_path, output_format, markdown_content, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: system, prompt, self'
+  description: 'code2llm reports `Data Clump: system, prompt, self` in `src/propact/llm_proxy.py:128`.
+
+
+    Arguments (system, prompt, self) are used together in multiple functions: src.propact.llm_proxy.LiteLLMProxy.astream,
+    src.propact.llm_proxy.LiteLLMProxy.generate_sync.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/llm_proxy.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/llm_proxy.py:128:Data Clump:
+    system, prompt, self'
+- signal: code2llm_smell_data_clump
+  title: 'Address code smell: Data Clump: system, prompt, self'
+  description: 'code2llm reports `Data Clump: system, prompt, self` in `src/propact/llm_proxy.py:167`.
+
+
+    Arguments (system, prompt, self) are used together in multiple functions: src.propact.llm_proxy.LiteLLMProxy.astream,
+    src.propact.llm_proxy.LiteLLMProxy.generate_sync.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - data-clump
+  files:
+  - src/propact/llm_proxy.py
+  dedupe_key: 'code2llm:smell:data_clump:src/propact/llm_proxy.py:167:Data Clump:
+    system, prompt, self'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _email_to_md'
+  description: 'code2llm reports `God Function: _email_to_md` in `src/propact/uniconverter.py:385`.
+
+
+    Function ''_email_to_md'' is oversized: CC=11, fan-out=16, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/uniconverter.py:385:God Function:
+    _email_to_md'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _fallback_search'
+  description: 'code2llm reports `God Function: _fallback_search` in `src/propact/error_handler.py:173`.
+
+
+    Function ''_fallback_search'' is oversized: CC=14, fan-out=9, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/error_handler.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/error_handler.py:173:God Function:
+    _fallback_search'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _introspect_schema'
+  description: 'code2llm reports `God Function: _introspect_schema` in `src/propact/enhanced.py:55`.
+
+
+    Function ''_introspect_schema'' is oversized: CC=14, fan-out=8, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/enhanced.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/enhanced.py:55:God Function:
+    _introspect_schema'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _load_config'
+  description: 'code2llm reports `God Function: _load_config` in `src/propact/config.py:191`.
+
+
+    Function ''_load_config'' is oversized: CC=1, fan-out=16, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/config.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/config.py:191:God Function:
+    _load_config'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _load_schemas'
+  description: 'code2llm reports `God Function: _load_schemas` in `src/propact/validation.py:74`.
+
+
+    Function ''_load_schemas'' is oversized: CC=4, fan-out=12, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/validation.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/validation.py:74:God Function:
+    _load_schemas'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _md_to_pptx'
+  description: 'code2llm reports `God Function: _md_to_pptx` in `src/propact/uniconverter.py:603`.
+
+
+    Function ''_md_to_pptx'' is oversized: CC=9, fan-out=12, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/uniconverter.py:603:God Function:
+    _md_to_pptx'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _md_to_xlsx'
+  description: 'code2llm reports `God Function: _md_to_xlsx` in `src/propact/uniconverter.py:652`.
+
+
+    Function ''_md_to_xlsx'' is oversized: CC=10, fan-out=13, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/uniconverter.py:652:God Function:
+    _md_to_xlsx'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _optimize_base64_images'
+  description: 'code2llm reports `God Function: _optimize_base64_images` in `src/propact/optimization.py:158`.
+
+
+    Function ''_optimize_base64_images'' is oversized: CC=1, fan-out=12, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/optimization.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/optimization.py:158:God Function:
+    _optimize_base64_images'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _optimize_code_blocks'
+  description: 'code2llm reports `God Function: _optimize_code_blocks` in `src/propact/optimization.py:233`.
+
+
+    Function ''_optimize_code_blocks'' is oversized: CC=1, fan-out=12, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/optimization.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/optimization.py:233:God Function:
+    _optimize_code_blocks'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: _optimize_image'
+  description: 'code2llm reports `God Function: _optimize_image` in `src/propact/optimization.py:190`.
+
+
+    Function ''_optimize_image'' is oversized: CC=9, fan-out=11, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/optimization.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/optimization.py:190:God Function:
+    _optimize_image'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: audit'
+  description: 'code2llm reports `God Function: audit` in `src/propact/security.py:197`.
+
+
+    Function ''audit'' is oversized: CC=13, fan-out=12, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/security.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/security.py:197:God Function:
+    audit'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: batch'
+  description: 'code2llm reports `God Function: batch` in `src/propact/cli.py:631`.
+
+
+    Function ''batch'' is oversized: CC=8, fan-out=12, mutations=6.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/cli.py:631:God Function: batch'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: detect_schema_drift'
+  description: 'code2llm reports `God Function: detect_schema_drift` in `src/propact/validation.py:377`.
+
+
+    Function ''detect_schema_drift'' is oversized: CC=8, fan-out=11, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/validation.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/validation.py:377:God Function:
+    detect_schema_drift'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: display_results'
+  description: 'code2llm reports `God Function: display_results` in `src/propact/cli.py:312`.
+
+
+    Function ''display_results'' is oversized: CC=12, fan-out=7, mutations=13.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/cli.py:312:God Function: display_results'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: extract_from_markdown'
+  description: 'code2llm reports `God Function: extract_from_markdown` in `src/propact/converter.py:165`.
+
+
+    Function ''extract_from_markdown'' is oversized: CC=13, fan-out=16, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/converter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/converter.py:165:God Function:
+    extract_from_markdown'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: formats'
+  description: 'code2llm reports `God Function: formats` in `src/propact/cli.py:477`.
+
+
+    Function ''formats'' is oversized: CC=2, fan-out=9, mutations=8.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/cli.py:477:God Function: formats'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: from_markdown'
+  description: 'code2llm reports `God Function: from_markdown` in `src/propact/uniconverter.py:208`.
+
+
+    Function ''from_markdown'' is oversized: CC=11, fan-out=13, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/uniconverter.py:208:God Function:
+    from_markdown'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: process'
+  description: 'code2llm reports `God Function: process` in `examples/05-security-hardening/secure_handler.py:88`.
+
+
+    Function ''process'' is oversized: CC=8, fan-out=16, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - examples/05-security-hardening/secure_handler.py
+  dedupe_key: 'code2llm:smell:god_function:examples/05-security-hardening/secure_handler.py:88:God
+    Function: process'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: run_example'
+  description: 'code2llm reports `God Function: run_example` in `src/propact/testing.py:184`.
+
+
+    Function ''run_example'' is oversized: CC=1, fan-out=1, mutations=15.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/testing.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/testing.py:184:God Function:
+    run_example'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: send'
+  description: 'code2llm reports `God Function: send` in `src/propact/adapters.py:163`.
+
+
+    Function ''send'' is oversized: CC=7, fan-out=15, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/adapters.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/adapters.py:163:God Function:
+    send'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: send_email'
+  description: 'code2llm reports `God Function: send_email` in `src/propact/cli.py:584`.
+
+
+    Function ''send_email'' is oversized: CC=6, fan-out=13, mutations=5.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/cli.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/cli.py:584:God Function: send_email'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: send_email'
+  description: 'code2llm reports `God Function: send_email` in `src/propact/uniconverter.py:262`.
+
+
+    Function ''send_email'' is oversized: CC=9, fan-out=20, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/uniconverter.py:262:God Function:
+    send_email'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: smart_send'
+  description: 'code2llm reports `God Function: smart_send` in `src/propact/core.py:25`.
+
+
+    Function ''smart_send'' is oversized: CC=13, fan-out=21, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/core.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/core.py:25:God Function: smart_send'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: to_markdown'
+  description: 'code2llm reports `God Function: to_markdown` in `src/propact/dsl_converter.py:155`.
+
+
+    Function ''to_markdown'' is oversized: CC=6, fan-out=13, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/dsl_converter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/dsl_converter.py:155:God Function:
+    to_markdown'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: to_markdown'
+  description: 'code2llm reports `God Function: to_markdown` in `src/propact/dsl_converter.py:544`.
+
+
+    Function ''to_markdown'' is oversized: CC=4, fan-out=11, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/dsl_converter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/dsl_converter.py:544:God Function:
+    to_markdown'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Function: to_markdown'
+  description: 'code2llm reports `God Function: to_markdown` in `src/propact/uniconverter.py:155`.
+
+
+    Function ''to_markdown'' is oversized: CC=9, fan-out=11, mutations=0.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/uniconverter.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/uniconverter.py:155:God Function:
+    to_markdown'
+- signal: code2llm_smell_god_function
+  title: 'Address code smell: God Module: src.propact.config'
+  description: 'code2llm reports `God Module: src.propact.config` in `src/propact/config.py:1`.
+
+
+    Module ''src.propact.config'' is too large (19 functions, 12 classes). Consider
+    splitting into sub-modules.
+
+
+    Make the smallest refactor that removes the smell and run local tests.'
+  priority: normal
+  labels:
+  - llm-ready
+  - code2llm
+  - code-smell
+  - god-function
+  files:
+  - src/propact/config.py
+  dedupe_key: 'code2llm:smell:god_function:src/propact/config.py:1:God Module: src.propact.config'
+applied: []
+skipped: []

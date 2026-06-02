@@ -126,11 +126,18 @@ def cli():
     default="POST",
     help="HTTP method for REST endpoints (default: POST)"
 )
+@click.option(
+    "--web-preprocess",
+    type=click.Choice(["none", "repatch"]),
+    default="none",
+    show_default=True,
+    help="Optional HTML preprocessing backend before execution"
+)
 def main(file_path: Path, protocol: Optional[str], endpoint: Optional[str], 
          openapi: Optional[str], base_url: Optional[str], openapi_llm_session: Optional[str],
          generate_spec: bool, llm_key: Optional[str], error_mode: str, max_retries: int,
          schema: Optional[Path], mode: str, port: int, list: bool, verbose: bool, dry_run: bool,
-         llm_provider: str, llm_model: Optional[str], method: str) -> None:
+         llm_provider: str, llm_model: Optional[str], method: str, web_preprocess: str) -> None:
     """
     Execute Protocol Pact documents.
     
@@ -138,10 +145,41 @@ def main(file_path: Path, protocol: Optional[str], endpoint: Optional[str],
     """
     async def run():
         # Get server config for default port
-        nonlocal port, protocol
+        nonlocal port, protocol, file_path
         server_config = get_server_config()
         if port is None:
             port = server_config.port
+
+        if web_preprocess == "repatch":
+            if file_path.suffix.lower() in {".html", ".htm"}:
+                try:
+                    from propact.webpatch import (
+                        WebPatchDependencyError,
+                        prepare_html_file_with_repatch,
+                    )
+                    artifacts = prepare_html_file_with_repatch(file_path)
+                except WebPatchDependencyError as exc:
+                    console.print(f"[red]Error: {exc}[/red]")
+                    return
+
+                prepped_path = file_path.with_name(f"{file_path.stem}.prepatch.html")
+                prepped_path.write_text(artifacts.sanitized_html, encoding="utf-8")
+                console.print(f"[green]✓ Repatch preprocessed HTML: {prepped_path}[/green]")
+
+                if artifacts.visual_css.strip():
+                    css_path = file_path.with_name(f"{file_path.stem}.prepatch.visual.css")
+                    css_path.write_text(artifacts.visual_css, encoding="utf-8")
+                    console.print(f"[blue]Visual CSS extracted: {css_path}[/blue]")
+
+                outline_path = file_path.with_name(f"{file_path.stem}.prepatch.outline.html")
+                outline_path.write_text(artifacts.outline, encoding="utf-8")
+                console.print(f"[blue]Outline generated: {outline_path}[/blue]")
+
+                file_path = prepped_path
+            else:
+                console.print(
+                    "[yellow]Skipping --web-preprocess=repatch because input is not an HTML file.[/yellow]"
+                )
             
         # Handle dry-run mode
         if dry_run:

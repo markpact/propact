@@ -1,110 +1,238 @@
-# vallm batch | 127f | 41✓ 0⚠ 19✗ | 2026-03-27
+# vallm batch | 167f | 0✓ 74⚠ 0✗ | 2026-06-01
 
 SUMMARY:
-  scanned: 127  passed: 41 (32.3%)  warnings: 0  errors: 19  unsupported: 67
+  scanned: 167  passed: 0 (0.0%)  warnings: 74  errors: 0  unsupported: 0
 
-ERRORS[19]{path,score}:
-  src/propact/__init__.py,0.57
-    issues[6]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'core' not found,7
-      python.import.resolvable,error,Module 'parser' not found,8
-      python.import.resolvable,error,Module 'attachments' not found,9
-      python.import.resolvable,error,Module 'enhanced' not found,10
-      python.import.resolvable,error,Module 'converter' not found,11
-      python.import.resolvable,error,Module 'config' not found,12
-  src/propact/protocols/__init__.py,0.57
+WARNINGS[74]{path,score}:
+  src/propact/cli.py,0.68
     issues[4]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'shell' not found,3
-      python.import.resolvable,error,Module 'mcp' not found,4
-      python.import.resolvable,error,Module 'rest' not found,5
-      python.import.resolvable,error,Module 'ws' not found,6
-  src/propact/adapters.py,0.79
-    issues[8]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'config' not found,5
-      python.import.resolvable,error,Module 'grpc' not found,9
-      python.import.resolvable,error,Module 'grpc' not found,10
-      python.import.resolvable,error,Module 'gql' not found,16
-      python.import.resolvable,error,Module 'gql.transport.aiohttp' not found,17
-      python.import.resolvable,error,Module 'paho.mqtt.client' not found,23
-      python.import.resolvable,error,Module 'zeep' not found,29
-      python.import.resolvable,error,Module 'zeep.asyncio' not found,30
-  src/propact/core.py,0.79
-    issues[5]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'parser' not found,7
-      python.import.resolvable,error,Module 'attachments' not found,8
-      python.import.resolvable,error,Module 'matcher' not found,42
-      python.import.resolvable,error,Module 'error_handler' not found,43
-      python.import.resolvable,error,Module 'prance' not found,74
-  src/propact/matcher.py,0.81
-    issues[4]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'error_handler' not found,26
-      python.import.resolvable,error,Module 'sentence_transformers' not found,11
-      python.import.resolvable,error,Module 'prance' not found,19
-      python.import.resolvable,error,Module 'llm_proxy' not found,30
-  src/propact/enhanced.py,0.84
-    issues[5]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'core' not found,15
-      python.import.resolvable,error,Module 'attachments' not found,16
-      python.import.resolvable,error,Module 'converter' not found,17
-      python.import.resolvable,error,Module 'adapters' not found,18
-      python.import.resolvable,error,Module 'prance' not found,10
-  src/propact/uniconverter.py,0.84
-    issues[9]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'markitdown' not found,18
-      python.import.resolvable,error,Module 'weasyprint' not found,24
-      python.import.resolvable,error,Module 'docx' not found,30
-      python.import.resolvable,error,Module 'pptx' not found,36
-      python.import.resolvable,error,Module 'pptx.util' not found,37
-      python.import.resolvable,error,Module 'openpyxl' not found,43
-      python.import.resolvable,error,Module 'pypandoc' not found,56
-      python.import.resolvable,error,Module 'html2text' not found,370
-      python.import.resolvable,error,Module 'html2text' not found,412
-  src/propact/validation.py,0.84
-    issues[5]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'parser' not found,28
-      python.import.resolvable,error,Module 'security' not found,29
-      python.import.resolvable,error,Module 'optimization' not found,30
-      python.import.resolvable,error,Module 'jsonschema' not found,13
-      python.import.resolvable,error,Module 'jsonschema' not found,14
-  src/propact/query_gen.py,0.86
-    issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'llm_proxy' not found,4
-  src/propact/dsl_converter.py,0.89
-    issues[4]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'sqlglot' not found,13
-      python.import.resolvable,error,Module 'pandas' not found,19
-      python.import.resolvable,error,Module 'xmltodict' not found,31
-      python.import.resolvable,error,Module 'markdown_table_generator' not found,37
-  src/propact/importer.py,0.89
-    issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'prance' not found,8
-  tests/test_protocols.py,0.89
-    issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'pytest' not found,3
-  src/propact/error_handler.py,0.91
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+      complexity.lizard_cc,warning,main.run: CC=35 exceeds limit 15,139
+      complexity.lizard_length,warning,main.run: 107 lines exceeds limit 100,139
+      complexity.lizard_cc,warning,universal: CC=17 exceeds limit 15,512
+  src/propact/enhanced.py,0.71
+    issues[3]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+      complexity.lizard_cc,warning,send_to_endpoint: CC=18 exceeds limit 15,171
+      complexity.lizard_cc,warning,_send_rest: CC=17 exceeds limit 15,261
+  src/propact/adapters.py,0.74
     issues[2]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'ollama' not found,13
-      python.import.resolvable,error,Module 'llm_proxy' not found,21
-  src/propact/llm_proxy.py,0.93
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+      complexity.lizard_cc,warning,send: CC=16 exceeds limit 15,282
+  src/propact/dsl_converter.py,0.74
+    issues[2]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+      complexity.lizard_cc,warning,from_markdown: CC=18 exceeds limit 15,211
+  src/propact/uniconverter.py,0.74
+    issues[2]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+      complexity.lizard_cc,warning,_md_to_docx: CC=23 exceeds limit 15,537
+  src/propact/validation.py,0.74
+    issues[2]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+      complexity.lizard_cc,warning,validate: CC=16 exceeds limit 15,201
+  examples/01-shell-upload/run.sh,0.78
     issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'litellm' not found,8
-  src/propact/testing.py,0.94
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/02-openapi-rest/run.sh,0.78
     issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'config' not found,9
-  tests/test_core.py,0.94
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/03-mcp-tool/run.sh,0.78
     issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'pytest' not found,3
-  src/propact/security.py,0.95
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/04-ws-chat/run.sh,0.78
     issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'bleach' not found,12
-  src/propact/converter.py,0.96
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/05-md-server/run.sh,0.78
     issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'pypandoc' not found,25
-  src/propact/cli.py,0.97
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/05-security-hardening/run.sh,0.78
     issues[1]{rule,severity,message,line}:
-      python.import.resolvable,error,Module 'importer' not found,196
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/05-security-hardening/secure_handler.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  examples/06-openai-vision/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/07-ffmpeg-cli/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/08-grpc-inference/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/09-imgur/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/10-slack/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/10-slack/slack-openapi.json,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse JSON: Download error: Language 'JSON' not available for download. Available groups: [""all""]",
+  examples/11-discord/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/12-openai-vision/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/13-github-gist/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/14-stripe/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/15-youtube/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/16-notion/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/17-twitter/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/18-todo-api/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/19-users-api/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/20-posts-api/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/21-albums-api/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/22-comments-api/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/23-photos-api/run.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/error-demo/ecommerce-api.json,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse JSON: Download error: Language 'JSON' not available for download. Available groups: [""all""]",
+  examples/openapi-llm-demo/notion-openapi.json,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse JSON: Download error: Language 'JSON' not available for download. Available groups: [""all""]",
+  examples/public-apis/demo-public.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/run-all.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/run-new-examples.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  examples/smart-test/openapi.json,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse JSON: Download error: Language 'JSON' not available for download. Available groups: [""all""]",
+  examples/smart-test/test_matcher.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  goal.yaml,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse YAML: Download error: Language 'YAML' not available for download. Available groups: [""all""]",
+  planfile.yaml,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse YAML: Download error: Language 'YAML' not available for download. Available groups: [""all""]",
+  prefact.yaml,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse YAML: Download error: Language 'YAML' not available for download. Available groups: [""all""]",
+  project.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  project/calls.yaml,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse YAML: Download error: Language 'YAML' not available for download. Available groups: [""all""]",
+  project/planfile-tickets.yaml,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse YAML: Download error: Language 'YAML' not available for download. Available groups: [""all""]",
+  pyproject.toml,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse TOML: Download error: Language 'TOML' not available for download. Available groups: [""all""]",
+  sample_data.json,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse JSON: Download error: Language 'JSON' not available for download. Available groups: [""all""]",
+  src/propact/__init__.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/attachments.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/config.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/constants.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/converter.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/core.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/error_handler.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/importer.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/llm_proxy.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/matcher.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/optimization.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/parser.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/protocols/__init__.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/protocols/mcp.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/protocols/rest.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/protocols/shell.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/protocols/ws.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/query_gen.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/security.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  src/propact/testing.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  test_all_examples.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  test_examples_final.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
+  tests/__init__.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  tests/test_core.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  tests/test_error_handler.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  tests/test_protocols.py,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse PYTHON: Download error: Language 'PYTHON' not available for download. Available groups: [""all""]",
+  verify_examples.sh,0.78
+    issues[1]{rule,severity,message,line}:
+      syntax.unsupported,warning,"Could not parse BASH: Download error: Language 'BASH' not available for download. Available groups: [""all""]",
 
-UNSUPPORTED[3]{bucket,count}:
-  *.md,56
-  *.txt,1
-  other,10

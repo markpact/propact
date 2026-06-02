@@ -1,0 +1,92 @@
+# code2llm call graph | /home/tom/github/pactown-com/propact
+# generated in 0.06s
+# nodes: 19 | edges: 15 | modules: 10
+# CC̄=3.5
+
+HUBS[20]:
+  src.propact.core.ToonPact.smart_send
+    CC=13  in:0  out:32  total:32
+  src.propact.adapters.MQTTAdapter.send
+    CC=7  in:0  out:17  total:17
+  src.propact.testing.ExampleHelper.run_example
+    CC=12  in:0  out:15  total:15
+  src.propact.config.get_config
+    CC=2  in:9  out:1  total:10
+  src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm
+    CC=7  in:0  out:10  total:10
+  src.propact.llm_proxy.self_correct
+    CC=3  in:1  out:9  total:10
+  src.propact.adapters.EmailAdapter.__init__
+    CC=1  in:0  out:9  total:9
+  examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__
+    CC=1  in:0  out:6  total:6
+  src.propact.security.create_sanitizer
+    CC=2  in:1  out:2  total:3
+  src.propact.optimization.create_optimizer
+    CC=1  in:1  out:2  total:3
+  src.propact.config.get_smtp_config
+    CC=1  in:2  out:1  total:3
+  src.propact.config.get_server_config
+    CC=1  in:1  out:1  total:2
+  src.propact.config.get_mqtt_config
+    CC=1  in:1  out:1  total:2
+  src.propact.matcher.create_matcher
+    CC=2  in:1  out:1  total:2
+  src.propact.config.is_test_mode
+    CC=1  in:0  out:1  total:1
+  src.propact.config.get_openai_config
+    CC=1  in:0  out:1  total:1
+  src.propact.config.get_grpc_config
+    CC=1  in:0  out:1  total:1
+  src.propact.config.is_debug
+    CC=1  in:0  out:1  total:1
+  src.propact.config.get_websocket_config
+    CC=1  in:0  out:1  total:1
+
+MODULES:
+  examples.05-security-hardening.secure_handler  [1 funcs]
+    __init__  CC=1  out:6
+  src.propact.adapters  [2 funcs]
+    __init__  CC=1  out:9
+    send  CC=7  out:17
+  src.propact.config  [9 funcs]
+    get_config  CC=2  out:1
+    get_grpc_config  CC=1  out:1
+    get_mqtt_config  CC=1  out:1
+    get_openai_config  CC=1  out:1
+    get_server_config  CC=1  out:1
+    get_smtp_config  CC=1  out:1
+    get_websocket_config  CC=1  out:1
+    is_debug  CC=1  out:1
+    is_test_mode  CC=1  out:1
+  src.propact.core  [1 funcs]
+    smart_send  CC=13  out:32
+  src.propact.error_handler  [1 funcs]
+    _llm_self_correct_litellm  CC=7  out:10
+  src.propact.llm_proxy  [1 funcs]
+    self_correct  CC=3  out:9
+  src.propact.matcher  [1 funcs]
+    create_matcher  CC=2  out:1
+  src.propact.optimization  [1 funcs]
+    create_optimizer  CC=1  out:2
+  src.propact.security  [1 funcs]
+    create_sanitizer  CC=2  out:2
+  src.propact.testing  [1 funcs]
+    run_example  CC=12  out:15
+
+EDGES:
+  examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__ → src.propact.security.create_sanitizer
+  examples.05-security-hardening.secure_handler.SecureMarkdownHandler.__init__ → src.propact.optimization.create_optimizer
+  src.propact.config.get_openai_config → src.propact.config.get_config
+  src.propact.config.get_grpc_config → src.propact.config.get_config
+  src.propact.config.get_mqtt_config → src.propact.config.get_config
+  src.propact.config.get_smtp_config → src.propact.config.get_config
+  src.propact.config.get_websocket_config → src.propact.config.get_config
+  src.propact.config.get_server_config → src.propact.config.get_config
+  src.propact.config.is_debug → src.propact.config.get_config
+  src.propact.config.is_test_mode → src.propact.config.get_config
+  src.propact.adapters.MQTTAdapter.send → src.propact.config.get_mqtt_config
+  src.propact.adapters.EmailAdapter.__init__ → src.propact.config.get_smtp_config
+  src.propact.error_handler.PropactErrorHandler._llm_self_correct_litellm → src.propact.llm_proxy.self_correct
+  src.propact.testing.ExampleHelper.run_example → src.propact.config.get_config
+  src.propact.core.ToonPact.smart_send → src.propact.matcher.create_matcher

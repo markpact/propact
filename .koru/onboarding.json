@@ -1,0 +1,12 @@
+{
+  "created_ticket_id": "PLF-001",
+  "created_ticket_title": "DevX: lokalny dev",
+  "project": "/home/tom/github/pactown-com/propact",
+  "schema": "koru.onboarding/v1",
+  "selected_ide": "jetbrains",
+  "strategy_path": [
+    "devx",
+    "local_dev"
+  ],
+  "updated_at": "2026-06-02T08:48:16.825828+00:00"
+}

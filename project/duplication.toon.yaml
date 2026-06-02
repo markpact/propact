@@ -1,25 +1,67 @@
-# redup/duplication | 1 groups | 23f 7311L | 2026-03-27
+# redup/duplication | 4 groups | 26f 7436L | 2026-06-01
 
 SUMMARY:
-  files_scanned: 23
-  total_lines:   7311
-  dup_groups:    1
-  dup_fragments: 4
-  saved_lines:   27
-  scan_ms:       1410
+  files_scanned: 26
+  total_lines:   7436
+  dup_groups:    4
+  dup_fragments: 14
+  saved_lines:   41
+  scan_ms:       2930
 
-DUPLICATES[1] (ranked by impact):
-  [e775ebebbe3efb86]   STRU  __post_init__  L=9 N=4 saved=27 sim=1.00
-      src/propact/enhanced.py:0-8  (__post_init__)
-      src/propact/converter.py:0-8  (__post_init__)
-      src/propact/uniconverter.py:0-8  (__post_init__)
-      src/propact/dsl_converter.py:0-8  (__post_init__)
+HOTSPOTS[4] (files with most duplication):
+  src/propact/dsl_converter.py  dup=27L  groups=2  frags=3  (0.4%)
+  src/propact/config.py  dup=24L  groups=1  frags=8  (0.3%)
+  src/propact/uniconverter.py  dup=7L  groups=1  frags=1  (0.1%)
+  src/propact/cli.py  dup=6L  groups=1  frags=2  (0.1%)
 
-REFACTOR[1] (ranked by priority):
-  [1] ○ extract_function   → src/propact/utils/__post_init__.py
-      WHY: 4 occurrences of 9-line block across 4 files — saves 27 lines
-      FILES: src/propact/converter.py, src/propact/dsl_converter.py, src/propact/enhanced.py, src/propact/uniconverter.py
+DUPLICATES[4] (ranked by impact):
+  [ab5b16619a4fdd19]   STRU  get_openai_config  L=3 N=8 saved=21 sim=1.00
+      src/propact/config.py:327-329  (get_openai_config)
+      src/propact/config.py:332-334  (get_grpc_config)
+      src/propact/config.py:337-339  (get_mqtt_config)
+      src/propact/config.py:342-344  (get_smtp_config)
+      src/propact/config.py:347-349  (get_websocket_config)
+      src/propact/config.py:352-354  (get_server_config)
+      src/propact/config.py:357-359  (is_debug)
+      src/propact/config.py:362-364  (is_test_mode)
+  [5dc94afc7b2e31b2]   EXAC  _markdown_to_dict  L=10 N=2 saved=10 sim=1.00
+      src/propact/dsl_converter.py:529-538  (_markdown_to_dict)
+      src/propact/dsl_converter.py:692-701  (_markdown_to_dict)
+  [a0695bd2a771bfa7]   EXAC  __post_init__  L=7 N=2 saved=7 sim=1.00
+      src/propact/dsl_converter.py:53-59  (__post_init__)
+      src/propact/uniconverter.py:73-79  (__post_init__)
+  [aaae754bdb04529d]   STRU  cli  L=3 N=2 saved=3 sim=1.00
+      src/propact/cli.py:27-29  (cli)
+      src/propact/cli.py:349-351  (convert)
+
+REFACTOR[4] (ranked by priority):
+  [1] ○ extract_function   → src/propact/utils/get_openai_config.py
+      WHY: 8 occurrences of 3-line block across 1 files — saves 21 lines
+      FILES: src/propact/config.py
+  [2] ○ extract_function   → src/propact/utils/_markdown_to_dict.py
+      WHY: 2 occurrences of 10-line block across 1 files — saves 10 lines
+      FILES: src/propact/dsl_converter.py
+  [3] ○ extract_class      → src/propact/utils/__post_init__.py
+      WHY: 2 occurrences of 7-line block across 2 files — saves 7 lines
+      FILES: src/propact/dsl_converter.py, src/propact/uniconverter.py
+  [4] ○ extract_function   → src/propact/utils/cli.py
+      WHY: 2 occurrences of 3-line block across 1 files — saves 3 lines
+      FILES: src/propact/cli.py
+
+QUICK_WINS[3] (low risk, high savings — do first):
+  [1] extract_function   saved=21L  → src/propact/utils/get_openai_config.py
+      FILES: config.py
+  [2] extract_function   saved=10L  → src/propact/utils/_markdown_to_dict.py
+      FILES: dsl_converter.py
+  [3] extract_class      saved=7L  → src/propact/utils/__post_init__.py
+      FILES: dsl_converter.py, uniconverter.py
+
+EFFORT_ESTIMATE (total ≈ 1.4h):
+  medium get_openai_config                   saved=21L  ~42min
+  easy   _markdown_to_dict                   saved=10L  ~20min
+  easy   __post_init__                       saved=7L  ~14min
+  easy   cli                                 saved=3L  ~6min
 
 METRICS-TARGET:
-  dup_groups:  1 → 0
-  saved_lines: 27 lines recoverable
+  dup_groups:  4 → 0
+  saved_lines: 41 lines recoverable

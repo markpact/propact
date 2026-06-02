@@ -1,0 +1,22 @@
+# SCENARIO: Auto-generated from Python Tests
+# TYPE: integration
+# GENERATED: true
+
+CONFIG[2]{key, value}:
+  base_url, ${api_url:-http://localhost:8101}
+  timeout_ms, 10000
+
+# Converted 12 assertions from pytest
+ASSERT[12]{field, operator, expected}:
+  request.method, ==, HTTPMethod.GET
+  request.url, ==, "https://api.example.com/test"
+  request.headers.Content-Type, ==, "application/json"
+  request.method, ==, HTTPMethod.GET
+  request.url, ==, "https://api.example.com/test"
+  request.headers.Content-Type, ==, "application/json"
+  request.method, ==, HTTPMethod.GET
+  request.url, ==, "https://api.example.com/test"
+  request.headers.Content-Type, ==, "application/json"
+  request.method, ==, HTTPMethod.GET
+  request.url, ==, "https://api.example.com/test"
+  request.headers.Content-Type, ==, "application/json"

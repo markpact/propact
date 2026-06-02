@@ -25,7 +25,12 @@ except ImportError:
     LiteLLMProxy = None
     self_correct = None
 
-from rich.console import Console
+try:
+    from rich.console import Console
+except ImportError:
+    class Console:
+        def print(self, *args, **kwargs):
+            print(*args)
 
 console = Console()
 

@@ -1,0 +1,144 @@
+flowchart TD
+%% generated in 0.01s
+    subgraph examples__05_security_hardening
+        examples__05_security_hardening__secure_handler__SecurityEventHandler____init__["__init__"]
+        examples__05_security_hardening__secure_handler__SecurityEventHandler__handle_violation["handle_violation"]
+        examples__05_security_hardening__secure_handler__SecurityEventHandler__get_report["get_report"]
+        examples__05_security_hardening__secure_handler__SecureMarkdownHandler____init__["__init__"]
+        examples__05_security_hardening__secure_handler__SecureMarkdownHandler__process("process CC=8")
+        examples__05_security_hardening__secure_handler__SecureMarkdownHandler__get_security_report["get_security_report"]
+        examples__05_security_hardening__secure_handler__demo_security("demo_security CC=9")
+    end
+    subgraph examples__09_imgur
+        examples__09_imgur__run__exit["exit"]
+    end
+    subgraph examples__10_slack
+        examples__10_slack__run__exit["exit"]
+    end
+    subgraph examples__11_discord
+        examples__11_discord__run__exit["exit"]
+    end
+    subgraph examples__12_openai_vision
+        examples__12_openai_vision__run__exit["exit"]
+    end
+    subgraph examples__13_github_gist
+        examples__13_github_gist__run__exit["exit"]
+    end
+    subgraph examples__14_stripe
+        examples__14_stripe__run__exit["exit"]
+    end
+    subgraph examples__15_youtube
+        examples__15_youtube__run__exit["exit"]
+    end
+    subgraph examples__16_notion
+        examples__16_notion__run__exit["exit"]
+    end
+    subgraph examples__17_twitter
+        examples__17_twitter__run__exit["exit"]
+    end
+    subgraph examples__run_all
+        examples__run_all__print_header["print_header"]
+        examples__run_all__print_status["print_status"]
+        examples__run_all__print_success["print_success"]
+        examples__run_all__print_warning["print_warning"]
+        examples__run_all__print_error["print_error"]
+        examples__run_all__check_propact["check_propact"]
+        examples__run_all__validate_example["validate_example"]
+        examples__run_all__check_env_vars["check_env_vars"]
+        examples__run_all__run_example["run_example"]
+        examples__run_all__run_legacy_example["run_legacy_example"]
+        examples__run_all__main["main"]
+    end
+    subgraph src__propact
+        src__propact__config__ConfigManager____init__["__init__"]
+        src__propact__config__ConfigManager___find_env_file["_find_env_file"]
+        src__propact__config__ConfigManager___load_env["_load_env"]
+        src__propact__config__ConfigManager___get_env_bool["_get_env_bool"]
+        src__propact__config__ConfigManager___get_env_int["_get_env_int"]
+        src__propact__config__ConfigManager___get_env_path["_get_env_path"]
+        src__propact__config__ConfigManager___load_config["_load_config"]
+        src__propact__config__ConfigManager__reload["reload"]
+        src__propact__config__get_config["get_config"]
+        src__propact__config__init_config["init_config"]
+        src__propact__config__reload_config["reload_config"]
+        src__propact__config__get_openai_config["get_openai_config"]
+        src__propact__config__get_grpc_config["get_grpc_config"]
+        src__propact__config__get_mqtt_config["get_mqtt_config"]
+        src__propact__config__get_smtp_config["get_smtp_config"]
+        src__propact__config__get_websocket_config["get_websocket_config"]
+        src__propact__config__get_server_config["get_server_config"]
+        src__propact__config__is_debug["is_debug"]
+        src__propact__config__is_test_mode["is_test_mode"]
+        src__propact__cli__cli["cli"]
+        src__propact__cli__main["main"]
+        src__propact__cli__list_blocks["list_blocks"]
+        src__propact__cli__display_results("display_results CC=12")
+        src__propact__cli__convert["convert"]
+        src__propact__cli__file{{file CC=15}}
+        src__propact__cli__string("string CC=11")
+        src__propact__cli__formats["formats"]
+        src__propact__cli__universal{{universal CC=17}}
+        src__propact__cli__send_email["send_email"]
+        src__propact__cli__batch("batch CC=8")
+        src__propact__importer__OpenAPILLMImporter__import_browser_spec["import_browser_spec"]
+        src__propact__importer__OpenAPILLMImporter__from_browser_session["from_browser_session"]
+        src__propact__importer__OpenAPILLMImporter__is_llm_enhanced["is_llm_enhanced"]
+        src__propact__importer__OpenAPILLMImporter__extract_llm_descriptions("extract_llm_descriptions CC=8")
+        src__propact__dsl_converter__ConversionResult____post_init__["__post_init__"]
+        src__propact__dsl_converter__BaseConverter____init__["__init__"]
+        src__propact__dsl_converter__BaseConverter__to_markdown["to_markdown"]
+        src__propact__dsl_converter__BaseConverter__from_markdown["from_markdown"]
+        src__propact__dsl_converter__BaseConverter___parse_md_table{{_parse_md_table CC=15}}
+        src__propact__dsl_converter__BaseConverter___create_md_table{{_create_md_table CC=15}}
+        src__propact__dsl_converter__SQLConverter____init__["__init__"]
+        src__propact__dsl_converter__SQLConverter__to_markdown["to_markdown"]
+        src__propact__dsl_converter__SQLConverter__from_markdown{{from_markdown CC=18}}
+        src__propact__dsl_converter__SQLConverter___mock_sql_result["_mock_sql_result"]
+        src__propact__dsl_converter__GraphQLConverter__to_markdown["to_markdown"]
+        src__propact__dsl_converter__GraphQLConverter__from_markdown["from_markdown"]
+        src__propact__dsl_converter__GraphQLConverter___extract_structured_data["_extract_structured_data"]
+        src__propact__dsl_converter__GraphQLConverter___generate_github_query["_generate_github_query"]
+        src__propact__dsl_converter__GraphQLConverter___generate_stripe_query["_generate_stripe_query"]
+        src__propact__dsl_converter__GraphQLConverter___generate_generic_query["_generate_generic_query"]
+        src__propact__dsl_converter__YAMLConverter__to_markdown["to_markdown"]
+        src__propact__dsl_converter__YAMLConverter__from_markdown["from_markdown"]
+        src__propact__dsl_converter__YAMLConverter___dict_to_markdown["_dict_to_markdown"]
+        src__propact__dsl_converter__YAMLConverter___list_to_markdown["_list_to_markdown"]
+        src__propact__dsl_converter__YAMLConverter___markdown_to_dict["_markdown_to_dict"]
+        src__propact__dsl_converter__CSVConverter__to_markdown["to_markdown"]
+        src__propact__dsl_converter__CSVConverter__from_markdown["from_markdown"]
+        src__propact__dsl_converter__XMLConverter__to_markdown["to_markdown"]
+        src__propact__dsl_converter__XMLConverter__from_markdown["from_markdown"]
+        src__propact__dsl_converter__XMLConverter___markdown_to_dict["_markdown_to_dict"]
+    end
+    subgraph test_all_examples
+        test_all_examples__test_example["test_example"]
+    end
+    subgraph test_examples_final
+        test_examples_final__test_example["test_example"]
+    end
+    subgraph verify_examples
+        verify_examples__test_example["test_example"]
+    end
+    examples__05_security_hardening__secure_handler__SecureMarkdownHandler____init__ --> src__propact__security__create_sanitizer
+    examples__05_security_hardening__secure_handler__SecureMarkdownHandler____init__ --> src__propact__optimization__create_optimizer
+    src__propact__config__get_openai_config --> src__propact__config__get_config
+    src__propact__config__get_grpc_config --> src__propact__config__get_config
+    src__propact__config__get_mqtt_config --> src__propact__config__get_config
+    src__propact__config__get_smtp_config --> src__propact__config__get_config
+    src__propact__config__get_websocket_config --> src__propact__config__get_config
+    src__propact__config__get_server_config --> src__propact__config__get_config
+    src__propact__config__is_debug --> src__propact__config__get_config
+    src__propact__config__is_test_mode --> src__propact__config__get_config
+    src__propact__adapters__MQTTAdapter__send --> src__propact__config__get_mqtt_config
+    src__propact__adapters__EmailAdapter____init__ --> src__propact__config__get_smtp_config
+    src__propact__adapters__EmailAdapter__send --> src__propact__config__get_smtp_config
+    src__propact__error_handler__PropactErrorHandler___llm_self_correct_litellm --> src__propact__llm_proxy__self_correct
+    src__propact__testing__ExampleHelper__run_example --> src__propact__config__get_config
+    src__propact__enhanced__Propact__send_to_endpoint --> src__propact__adapters__get_protocol_adapter
+    src__propact__core__ToonPact__smart_send --> src__propact__matcher__create_matcher
+
+    classDef highCC fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    classDef medCC fill:#ffd43b,stroke:#f08c00,color:#000
+    class src__propact__cli__file,src__propact__cli__universal,src__propact__dsl_converter__BaseConverter___parse_md_table,src__propact__dsl_converter__BaseConverter___create_md_table,src__propact__dsl_converter__SQLConverter__from_markdown,src__propact__adapters__EmailAdapter__send,src__propact__validation__ValidationPipeline__validate,src__propact__enhanced__Propact__send_to_endpoint,src__propact__enhanced__Propact___send_rest,src__propact__uniconverter__UniConverter___md_to_docx highCC
+    class examples__05_security_hardening__secure_handler__SecureMarkdownHandler__process,examples__05_security_hardening__secure_handler__demo_security,src__propact__cli__display_results,src__propact__cli__string,src__propact__cli__batch,src__propact__importer__OpenAPILLMImporter__extract_llm_descriptions,src__propact__dsl_converter__DSLConverter__convert,src__propact__matcher__EndpointMatcher__extract_endpoints,src__propact__matcher__EndpointMatcher__match,src__propact__security__MDSanitizer__audit,src__propact__error_handler__PropactErrorHandler__handle_match_failure,src__propact__error_handler__PropactErrorHandler___fallback_search,src__propact__validation__ValidationPipeline__detect_schema_drift,src__propact__testing__ExampleHelper__create_sample_file,src__propact__testing__ExampleHelper__run_example,src__propact__enhanced__Propact___introspect_schema,src__propact__enhanced__Propact___response_to_md,src__propact__uniconverter__UniConverter__to_markdown,src__propact__uniconverter__UniConverter__from_markdown,src__propact__uniconverter__UniConverter__send_email,src__propact__uniconverter__UniConverter___email_to_md,src__propact__uniconverter__UniConverter___md_to_pptx,src__propact__uniconverter__UniConverter___md_to_xlsx,src__propact__optimization__MDOptimizer___optimize_image,src__propact__llm_proxy__LiteLLMProxy__generate,src__propact__core__ToonPact__smart_send,src__propact__core__ToonPact__execute,src__propact__converter__MDConverter__extract_from_markdown medCC

@@ -52,6 +52,8 @@ class AttachmentHandler:
     def get_mime_type(self, path: Union[str, Path]) -> str:
         """Get MIME type for a file."""
         mime_type, _ = mimetypes.guess_type(str(path))
+        if mime_type and mime_type.startswith("chemical/"):
+            return 'application/octet-stream'
         return mime_type or 'application/octet-stream'
         
     async def extract_from_markdown(self, content: str, base_path: Optional[Path] = None) -> Dict[str, bytes]:
