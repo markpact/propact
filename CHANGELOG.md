@@ -122,6 +122,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.10] - 2026-06-05
+
+### Docs
+- Update README.md
+
+### Other
+- Update VERSION
+- Update project/planfile-tickets.yaml
+
 ## [0.0.10] - 2026-06-02
 
 ### Docs

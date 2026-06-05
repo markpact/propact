@@ -1,5 +1,4 @@
 source: code2llm
-# generated in 0.11s
 schema: code2llm.planfile_tickets.v1
 project_root: /home/tom/github/pactown-com/propact
 tickets:
@@ -1584,5 +1583,20 @@ tickets:
   files:
   - src/propact/config.py
   dedupe_key: 'code2llm:smell:god_function:src/propact/config.py:1:God Module: src.propact.config'
+- signal: slow_test_warning
+  title: 'Address slow test: tests.test_error_handler.test_retry_logic'
+  description: 'Test `tests.test_error_handler.test_retry_logic` took 3.86s to run.
+
+
+    Optimize its setup, mock slow external dependencies, or refactor its logic to
+    reduce overall test suite execution time.'
+  priority: medium
+  labels:
+  - llm-ready
+  - test-optimization
+  - slow-test
+  files:
+  - tests/test_error_handler.py
+  dedupe_key: test-optimization:tests.test_error_handler:test_retry_logic
 applied: []
 skipped: []
