@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "usr_001",
+      "name": "Alice Developer",
+      "email": "alice@propact.local",
+      "role": "admin"
+    },
+    {
+      "id": "usr_002",
+      "name": "Bob Tester",
+      "email": "bob@propact.local",
+      "role": "qa"
+    },
+    {
+      "id": "usr_003",
+      "name": "Charlie Guest",
+      "email": "charlie@propact.local",
+      "role": "viewer"
+    }
+  ],
+  "pacts": [
+    {
+      "id": "pact_rest_sample",
+      "name": "Sample REST Pact",
+      "protocol": "rest",
+      "content": "# Test REST Endpoint\n```propact:rest\nGET http://localhost:8000/api/v1/users\n```"
+    },
+    {
+      "id": "pact_shell_sample",
+      "name": "Sample Shell Pact",
+      "protocol": "shell",
+      "content": "# Test Shell Command\n```propact:shell\necho 'Propact Dev Ready'\n```"
+    }
+  ],
+  "items": [
+    {
+      "id": "item_1",
+      "title": "Protocol Pact Spec",
+      "category": "specification",
+      "active": true
+    },
+    {
+      "id": "item_2",
+      "title": "DevX Hot-Reload",
+      "category": "tooling",
+      "active": true
+    }
+  ]
+}
